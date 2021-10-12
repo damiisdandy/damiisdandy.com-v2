@@ -28,6 +28,8 @@
 ### Blogs posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Pagination in Javascript and React, with a custom usePagination() hook](https://dev.to/damiisdandy/pagination-in-javascript-and-react-with-a-custom-usepagination-hook-1mgo)
+- [Ultimate Guide to setup React Context API with a custom hook [Typescript]](https://dev.to/damiisdandy/ultimate-guide-to-setup-react-context-api-with-a-custom-hook-typescript-27kn)
 <!-- BLOG-POST-LIST:END -->
 
 <h3 align="left">Connect with me:</h3>
