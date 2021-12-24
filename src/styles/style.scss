@@ -12,10 +12,9 @@ html {
 .root {
   background-color: $dark-background-color;
   color: $dark-text-color;
+  max-width: 100vw;
   min-height: 100vh;
-  min-width: 100vw;
-  height: 100%;
-  width: 100%;
+  padding: 0 2rem;
   &,
   * {
     transition: $transition-fast;
@@ -24,7 +23,26 @@ html {
     color: $light-text-color;
     background-color: $light-background-color;
   }
+  .container {
+    max-width: 900px;
+    height: 100%;
+    margin: 0 auto;
+    .children {
+      min-height: calc(100vh - (6rem + #{$footer-height}));
+    }
+  }
+}
+
+@include phone {
+  .root {
+    .container {
+      .children {
+        min-height: calc(100vh - (#{$navbar-height} + #{$footer-height}));
+      }
+    }
+  }
 }
 
 @import '../components/Layout/Navbar/index';
 @import '../components/Layout/Navbar/Sidebar/index';
+@import '../components/Layout/Footer/index';

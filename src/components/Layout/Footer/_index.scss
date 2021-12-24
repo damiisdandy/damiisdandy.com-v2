@@ -1,0 +1,73 @@
+.Footer {
+  height: $footer-height;
+  border-top: 0.2rem solid $dark-background-color-2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .Icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .icon {
+      &:link,
+      &:visited {
+        color: #444;
+        font-size: 1.5rem;
+        &:hover,
+        &:active {
+          color: $dark-text-color;
+        }
+      }
+    }
+  }
+  .copyright {
+    font-size: 1.3rem;
+    color: #444;
+  }
+}
+
+.light {
+  .Footer {
+    border-color: $light-background-color-2;
+    .Icons {
+      .icon {
+        &:link,
+        &:visited {
+          color: #888;
+          &:hover,
+          &:active {
+            color: $light-text-color;
+          }
+        }
+      }
+    }
+    .copyright {
+      color: #888;
+    }
+  }
+}
+
+@include phone {
+  .Footer {
+    .Icons {
+      gap: 1.5rem;
+      .icon {
+        &:link,
+        &:visited {
+          font-size: 1.7rem;
+        }
+      }
+    }
+    .copyright {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@include tablet {
+  .Footer {
+    .Icons {
+      gap: 2rem;
+    }
+  }
+}

@@ -2,8 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: $navbar-height;
-  padding: 0 2rem;
+  height: 6rem;
   .Burger {
     background-color: transparent;
     &:hover,
@@ -37,6 +36,9 @@
       }
     }
   }
+  .Links {
+    display: none;
+  }
   .Colormode {
     background-color: transparent;
     &:hover,
@@ -66,12 +68,60 @@
         background-color: $light-text-color;
       }
     }
+    .Links {
+      .link {
+        &:link,
+        &:visited {
+          color: $light-text-color;
+          &:hover,
+          &:active,
+          &.active {
+            background-color: $light-background-color-2;
+          }
+        }
+      }
+    }
     .Colormode {
       &:hover,
       &:active {
         background-color: $light-background-color-2;
       }
       color: $light-text-color;
+    }
+  }
+}
+
+@include phone {
+  .Navbar {
+    height: $navbar-height;
+  }
+}
+
+@include tablet {
+  .Navbar {
+    .Burger {
+      display: none;
+    }
+    .Links {
+      display: flex;
+      gap: 4rem;
+      .link {
+        &:link,
+        &:visited {
+          display: block;
+          color: $dark-text-color;
+          font-size: 1.7rem;
+          text-transform: capitalize;
+          text-decoration: none;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          &:hover,
+          &:active,
+          &.active {
+            background-color: $dark-background-color-2;
+          }
+        }
+      }
     }
   }
 }

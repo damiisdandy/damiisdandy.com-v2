@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Sidebar = ({ isOpen }: { isOpen: boolean }) => {
+const Sidebar = ({
+  isOpen,
+  urls,
+}: {
+  isOpen: boolean;
+  urls: { name: string; url: string }[];
+}) => {
   return <div className={`Sidebar ${isOpen && 'active'}`}></div>;
 };
 

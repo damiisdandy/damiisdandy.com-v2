@@ -20,9 +20,11 @@ const Layout: React.FC = ({ children }) => {
   }, []);
   return (
     <div className={`root ${isLightMode && 'light'}`}>
-      <Navbar />
-      <div className="container">{children}</div>
-      <Footer />
+      <div className="container">
+        <Navbar />
+        <div className="children">{children}</div>
+        <Footer />
+      </div>
     </div>
   );
 };

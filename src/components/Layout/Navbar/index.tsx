@@ -3,6 +3,27 @@ import useColorMode from '../../../hooks/useColorMode';
 import useDisclosure from '../../../hooks/useDisclosure';
 import { BiSun, BiMoon } from 'react-icons/bi';
 import Sidebar from './Sidebar';
+import { Link } from 'gatsby';
+import { useLocation } from '@reach/router';
+
+const LINKS: { name: string; url: string }[] = [
+  {
+    name: 'home',
+    url: '/',
+  },
+  {
+    name: 'my works',
+    url: '/my-works',
+  },
+  {
+    name: 'resume',
+    url: '/#',
+  },
+  {
+    name: 'blog',
+    url: '/blog',
+  },
+];
 
 const Burger = ({
   isActive,
@@ -38,11 +59,23 @@ const ColorModeSwitch = () => {
 
 const Navbar = () => {
   const { isOpen, toggle } = useDisclosure(false);
+  const { pathname } = useLocation();
   return (
     <nav className="Navbar">
       <Burger isActive={isOpen} action={toggle} />
+      <div className="Links">
+        {LINKS.map(el => (
+          <Link
+            key={el.url}
+            to={el.url}
+            className={`link ${pathname === el.url && 'active'}`}
+          >
+            {el.name}
+          </Link>
+        ))}
+      </div>
       <ColorModeSwitch />
-      <Sidebar isOpen={isOpen} />
+      <Sidebar urls={LINKS} isOpen={isOpen} />
     </nav>
   );
 };

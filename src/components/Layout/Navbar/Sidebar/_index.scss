@@ -15,3 +15,9 @@
     background-color: $light-background-color;
   }
 }
+
+@include tablet {
+  .Sidebar {
+    display: none;
+  }
+}
