@@ -1,0 +1,17 @@
+.Sidebar {
+  height: calc(100vh - $navbar-height);
+  position: fixed;
+  top: $navbar-height;
+  left: -100%;
+  width: 100vw;
+  background-color: $dark-background-color;
+  &.active {
+    left: 0;
+  }
+}
+
+.light {
+  .Sidebar {
+    background-color: $light-background-color;
+  }
+}

@@ -16,9 +16,15 @@ html {
   min-width: 100vw;
   height: 100%;
   width: 100%;
-  transition: $transition-fast;
+  &,
+  * {
+    transition: $transition-fast;
+  }
   &.light {
     color: $light-text-color;
     background-color: $light-background-color;
   }
 }
+
+@import '../components/Layout/Navbar/index';
+@import '../components/Layout/Navbar/Sidebar/index';

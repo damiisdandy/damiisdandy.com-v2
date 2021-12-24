@@ -1,0 +1,77 @@
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $navbar-height;
+  padding: 0 2rem;
+  .Burger {
+    background-color: transparent;
+    &:hover,
+    &:active {
+      background-color: $dark-background-color-2;
+    }
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    & > div {
+      height: 0.2rem;
+      border-radius: 0.1rem;
+      background-color: $dark-text-color;
+      width: 2rem;
+      transform-origin: center;
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+    &.active {
+      & > div {
+        transform: rotateZ(45deg);
+        &:not(:last-child) {
+          margin-bottom: -0.2rem;
+          transform: rotateZ(-45deg);
+        }
+      }
+    }
+  }
+  .Colormode {
+    background-color: transparent;
+    &:hover,
+    &:active {
+      background-color: $dark-background-color-2;
+    }
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    color: $dark-text-color;
+  }
+}
+
+.light {
+  .Navbar {
+    .Burger {
+      &:hover,
+      &:active {
+        background-color: $light-background-color-2;
+      }
+      & > div {
+        background-color: $light-text-color;
+      }
+    }
+    .Colormode {
+      &:hover,
+      &:active {
+        background-color: $light-background-color-2;
+      }
+      color: $light-text-color;
+    }
+  }
+}

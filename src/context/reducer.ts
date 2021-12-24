@@ -6,6 +6,9 @@ const reducer: Reducer = (state, action) => {
   const localData = rawLocalData ? JSON.parse(rawLocalData) : state;
   let returnValue: Store = { ...initialState, ...localData };
   switch (action.type) {
+    case 'INIT':
+      returnValue = { ...action.payload };
+      break;
     case 'TOGGLE_MODE':
       returnValue = { ...state, isLightmode: !state.isLightmode };
       break;

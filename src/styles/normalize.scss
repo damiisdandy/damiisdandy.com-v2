@@ -13,6 +13,9 @@
   &::after,
   &::before {
     box-sizing: border-box;
+    margin: 0;
+    border: none;
+    outline: none;
   }
 }
 
@@ -208,6 +211,7 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
+  cursor: pointer;
 }
 
 /**
