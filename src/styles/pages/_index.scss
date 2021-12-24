@@ -16,9 +16,29 @@
         font-size: 1.8rem;
       }
       .about {
-        margin-top: 1rem;
+        margin-top: 2rem;
         font-size: 1.8rem;
         color: #888;
+        b {
+          color: $dark-text-color;
+        }
+        .link {
+          &:link,
+          &:visited {
+            color: inherit;
+            text-decoration: none;
+            position: relative;
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -0.1rem;
+              left: 0;
+              width: 100%;
+              height: 0.1rem;
+              background-color: $primary-color;
+            }
+          }
+        }
       }
     }
     .image {
@@ -26,7 +46,37 @@
       width: 15rem;
       overflow: hidden;
       border-radius: 50%;
+      border: 0.3rem solid $primary-color;
+      padding: 0.5rem;
       align-self: center;
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.light {
+  .Home {
+    .Heading {
+      .intro {
+        .about {
+          b {
+            color: $light-text-color;
+          }
+          .link {
+            &:link,
+            &:visited {
+              &::after {
+                background-color: $primary-color-2;
+              }
+            }
+          }
+        }
+      }
+      .image {
+        border-color: $primary-color-2;
+      }
     }
   }
 }
@@ -38,7 +88,7 @@
       flex-direction: row;
       align-items: center;
       .intro {
-        width: 60%;
+        width: 65%;
         order: 1;
       }
       .image {

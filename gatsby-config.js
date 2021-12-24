@@ -7,7 +7,7 @@ module.exports = {
     url: 'https://damiisdandy.com', // No trailing slash allowed!
     image: '/images/og.jpg', // Path to your image you placed in the 'static' folder
     twitterUsername: '@realDamiisdandy',
-    colorTheme: '#7f00ff',
+    colorTheme: '#ffe367',
   },
   plugins: [
     `gatsby-plugin-sass`,

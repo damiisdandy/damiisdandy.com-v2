@@ -1,7 +1,10 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
+import { Link } from 'gatsby';
+import useColorMode from '../hooks/useColorMode';
 
 const Home = () => {
+  const { isLightMode } = useColorMode();
   return (
     <div className="Home">
       <div className="Heading">
@@ -16,11 +19,15 @@ const Home = () => {
         </div>
         <div className="intro">
           <h1>damilola jerugba</h1>
-          <h2>Full stack developer ⚡</h2>
+          <h2>Full stack developer {isLightMode ? ' 💙' : '⚡'}</h2>
           <p className="about">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
-            quidem quia ipsa ex, eius, tempore nisi provident, inventore sunt
-            eum sint dolorum harum corrupti!
+            Hey! Fun fact, I'm in love with programming as whole, especially{' '}
+            <b>Web Development</b> (and anime), I build high performating web
+            applications that meets my client's needs. I also love sharing my
+            knowledge so I write{' '}
+            <Link className="link" to="/blog">
+              dev articles.
+            </Link>
           </p>
         </div>
       </div>
