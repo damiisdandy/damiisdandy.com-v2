@@ -1,15 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Damilola Jerugba`,
-    author: {
-      name: `Damilola Jerugba`,
-      summary: `A full-stack developer that loves building stuff`,
-    },
-    description: `Damilola Jerugba's portfolio and blog`,
-    siteUrl: `https://damiisdandy.com`,
-    social: {
-      twitter: `realdamiisdandy`,
-    },
+    siteUrl: 'https://damiisdandy.com',
+    title: 'Damiisdandy 👨‍💻',
+    titleTemplate: 'Damiisdandy 👨‍💻· %s',
+    description: `Damiisdandy's official website`,
+    url: 'https://damiisdandy.com', // No trailing slash allowed!
+    image: '/images/og.jpg', // Path to your image you placed in the 'static' folder
+    twitterUsername: '@realDamiisdandy',
+    colorTheme: '#7f00ff',
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -127,4 +125,11 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-offline`,
   ],
+  flags: {
+    DEV_SSR: false,
+    FAST_DEV: false,
+    PRESERVE_FILE_DOWNLOAD_CACHE: false,
+    PARALLEL_SOURCING: false,
+    LMDB_STORE: false,
+  },
 };

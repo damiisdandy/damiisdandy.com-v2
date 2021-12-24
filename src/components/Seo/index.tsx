@@ -14,7 +14,6 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
     defaultImage,
     twitterUsername,
     colorTheme,
-    keywords,
     buildTime,
   } = site.siteMetadata;
 
@@ -140,7 +139,6 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       <link rel="canonical" href={seo.url} />
       <meta name="description" content={seo.description} />
       <meta name="image" content={`${seo.image}`} />
-      <meta content={keywords} name="keywords" />
       {/* PWA */}
       <meta content={colorTheme} name="theme-color" />
       <meta content={colorTheme} name="msapplication-TileColor" />
@@ -201,7 +199,6 @@ const query = graphql`
         defaultImage: image
         twitterUsername
         colorTheme
-        keywords
       }
     }
   }
