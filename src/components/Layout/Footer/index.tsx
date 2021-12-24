@@ -41,13 +41,15 @@ const Footer = () => {
             href={el.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="icon"
+            className="icon gray-text"
           >
             <el.icon />
           </a>
         ))}
       </div>
-      <p className="copyright">&copy; damiisdandy {date.getFullYear()}</p>
+      <p className="copyright gray-text">
+        &copy; damiisdandy {date.getFullYear()}
+      </p>
     </footer>
   );
 };

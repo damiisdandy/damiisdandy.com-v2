@@ -43,6 +43,20 @@ html {
   }
 }
 
+.gray-text {
+  color: #444;
+}
+
+.light {
+  .gray-text {
+    color: #888;
+  }
+}
+
+// components
 @import '../components/Layout/Navbar/index';
 @import '../components/Layout/Navbar/Sidebar/index';
 @import '../components/Layout/Footer/index';
+
+// pages
+@import './pages/index';

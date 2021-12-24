@@ -4,6 +4,7 @@
   top: $navbar-height;
   left: -100%;
   width: 100vw;
+  z-index: 100;
   background-color: $dark-background-color;
   &.active {
     left: 0;

@@ -1,0 +1,51 @@
+.Home {
+  .Heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 3rem;
+    .intro {
+      h1 {
+        font-size: 3rem;
+        text-transform: capitalize;
+      }
+      h2 {
+        margin-top: 0.5rem;
+        font-weight: 400;
+        font-size: 1.8rem;
+      }
+      .about {
+        margin-top: 1rem;
+        font-size: 1.8rem;
+        color: #888;
+      }
+    }
+    .image {
+      height: 15rem;
+      width: 15rem;
+      overflow: hidden;
+      border-radius: 50%;
+      align-self: center;
+    }
+  }
+}
+
+@include tablet {
+  .Home {
+    padding-top: 4rem;
+    .Heading {
+      flex-direction: row;
+      align-items: center;
+      .intro {
+        width: 60%;
+        order: 1;
+      }
+      .image {
+        order: 2;
+        height: 20rem;
+        width: 20rem;
+      }
+    }
+  }
+}
