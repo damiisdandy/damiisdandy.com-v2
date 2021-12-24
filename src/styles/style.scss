@@ -46,6 +46,24 @@ html {
   color: #444;
 }
 
+.my-link {
+  &:link,
+  &:visited {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.1rem;
+      left: 0;
+      width: 100%;
+      height: 0.1rem;
+      background-color: $primary-color;
+    }
+  }
+}
+
 .light {
   .gray-text {
     color: #888;

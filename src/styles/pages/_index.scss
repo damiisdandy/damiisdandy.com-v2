@@ -22,23 +22,6 @@
         b {
           color: $dark-text-color;
         }
-        .link {
-          &:link,
-          &:visited {
-            color: inherit;
-            text-decoration: none;
-            position: relative;
-            &::after {
-              content: '';
-              position: absolute;
-              bottom: -0.1rem;
-              left: 0;
-              width: 100%;
-              height: 0.1rem;
-              background-color: $primary-color;
-            }
-          }
-        }
       }
     }
     .image {
@@ -52,6 +35,14 @@
       img {
         border-radius: 50%;
       }
+    }
+  }
+  .WhatIDo {
+    margin-top: 8rem;
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      text-transform: capitalize;
     }
   }
 }

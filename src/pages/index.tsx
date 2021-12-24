@@ -24,12 +24,15 @@ const Home = () => {
             Hey! Fun fact, I'm in love with programming as whole, especially{' '}
             <b>Web Development</b> (and anime), I build high performating web
             applications that meets my client's needs. I also love sharing my
-            knowledge so I write{' '}
-            <Link className="link" to="/blog">
-              dev articles.
+            knowledge so I write dev{' '}
+            <Link className="my-link" to="/blog">
+              articles.
             </Link>
           </p>
         </div>
+      </div>
+      <div className="WhatIDo">
+        <h1>what i do</h1>
       </div>
     </div>
   );
