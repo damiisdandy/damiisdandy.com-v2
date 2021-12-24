@@ -68,6 +68,14 @@ html {
   .gray-text {
     color: #888;
   }
+  .my-link {
+    &:link,
+    &:visited {
+      &::after {
+        background-color: $primary-color-2;
+      }
+    }
+  }
 }
 
 // components

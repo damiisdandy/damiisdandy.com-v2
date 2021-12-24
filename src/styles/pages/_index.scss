@@ -55,14 +55,6 @@
           b {
             color: $light-text-color;
           }
-          .link {
-            &:link,
-            &:visited {
-              &::after {
-                background-color: $primary-color-2;
-              }
-            }
-          }
         }
       }
       .image {

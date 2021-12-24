@@ -20,8 +20,8 @@ const LINKS: { name: string; url: string }[] = [
     url: '/#',
   },
   {
-    name: 'blog',
-    url: '/blog',
+    name: 'articles',
+    url: '/articles',
   },
 ];
 

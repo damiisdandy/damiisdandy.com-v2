@@ -25,7 +25,7 @@ const Home = () => {
             <b>Web Development</b> (and anime), I build high performating web
             applications that meets my client's needs. I also love sharing my
             knowledge so I write dev{' '}
-            <Link className="my-link" to="/blog">
+            <Link className="my-link" to="/articles">
               articles.
             </Link>
           </p>
