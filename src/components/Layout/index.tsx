@@ -6,7 +6,7 @@ import useColorMode from '../../hooks/useColorMode';
 const Layout: React.FC = ({ children }) => {
   const { isLightMode } = useColorMode();
   return (
-    <div className={`Layout ${isLightMode && 'light'}`}>
+    <div className={`root ${isLightMode && 'light'}`}>
       <Navbar />
       <div className="container">{children}</div>
       <Footer />
