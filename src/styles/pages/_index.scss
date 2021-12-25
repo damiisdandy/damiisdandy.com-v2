@@ -64,7 +64,6 @@
         gap: 1rem;
         transition: $transition-slow;
         &:hover {
-          transform: scale(1.01) translateY(-0.5rem);
           .image {
             transform: scale(1.2);
           }

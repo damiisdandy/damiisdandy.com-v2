@@ -3,7 +3,9 @@ import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const Seo = ({ title, description, article, image, author, date }: Seo) => {
+const date = new Date();
+
+const Seo = ({ title, description, article, image, author }: Seo) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
   const {
@@ -44,7 +46,7 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       '@type': 'Person',
       name: 'Damilola Jerugba',
     },
-    copyrightYear: '2021',
+    copyrightYear: date.getFullYear(),
     creator: {
       '@type': 'Person',
       name: 'Damilola Jerugba',
@@ -80,27 +82,27 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       '@type': 'Article',
       author: {
         '@type': 'Person',
-        name: author,
+        name: author ? author : 'Damilola Jerugba',
       },
       copyrightHolder: {
         '@type': 'Person',
-        name: author,
+        name: author ? author : 'Damilola Jerugba',
       },
-      copyrightYear: '2019',
+      copyrightYear: date.getFullYear(),
       creator: {
         '@type': 'Person',
-        name: author,
+        name: author ? author : 'Damilola Jerugba',
       },
       publisher: {
         '@type': 'Organization',
-        name: author,
+        name: author ? author : 'Damilola Jerugba',
         logo: {
           '@type': 'ImageObject',
           url: `${seo.image}`,
         },
       },
-      datePublished: date,
-      dateModified: date,
+      datePublished: buildTime,
+      dateModified: buildTime,
       description: seo.description,
       headline: seo.title,
       inLanguage: 'en',

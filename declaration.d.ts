@@ -6,7 +6,6 @@ interface Seo {
   description?: string;
   article?: boolean;
   author?: string;
-  date?: string;
 }
 
 interface Store {
