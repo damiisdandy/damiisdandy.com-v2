@@ -18,7 +18,6 @@ const Seo = ({ title, description, article, image, author }: Seo) => {
     colorTheme,
     buildTime,
   } = site.siteMetadata;
-  console.log(site);
 
   const seo = {
     title: title || defaultTitle,

@@ -5,6 +5,7 @@ import { BiSun, BiMoon } from 'react-icons/bi';
 import Sidebar from './Sidebar';
 import { Link } from 'gatsby';
 import { useLocation } from '@reach/router';
+import { motion } from 'framer-motion';
 
 const LINKS: { name: string; url: string }[] = [
   {
@@ -65,7 +66,12 @@ const Navbar = () => {
   const { isOpen, toggle } = useDisclosure(false);
   const { pathname } = useLocation();
   return (
-    <nav className="Navbar">
+    <motion.nav
+      animate={{
+        y: ['-100%', '0%'],
+      }}
+      className="Navbar"
+    >
       <Burger isActive={isOpen} action={toggle} />
       <div className="Links">
         {LINKS.map(el => (
@@ -80,7 +86,7 @@ const Navbar = () => {
       </div>
       <ColorModeSwitch />
       <Sidebar urls={LINKS} isOpen={isOpen} />
-    </nav>
+    </motion.nav>
   );
 };
 
