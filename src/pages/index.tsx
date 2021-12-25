@@ -64,7 +64,7 @@ const Home = () => {
       <Seo
         title="Home"
         description="A short overview about Damilola Jerugba"
-        image="../images/seo/index.png"
+        image="/seo/index.png"
       />
       <div className="Home">
         <div className="Heading section">

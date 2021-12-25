@@ -5,11 +5,7 @@ import Seo from '../components/Seo';
 const PageNotFound = () => {
   return (
     <>
-      <Seo
-        title="404"
-        description="Page not found"
-        image="../images/seo/404.png"
-      />
+      <Seo title="404" description="Page not found" image="/seo/404.png" />
       <div className="FourZeroFour">
         <div>
           <h1>404</h1>

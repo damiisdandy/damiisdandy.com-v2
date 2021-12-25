@@ -18,14 +18,12 @@ const Seo = ({ title, description, article, image, author }: Seo) => {
     colorTheme,
     buildTime,
   } = site.siteMetadata;
+  console.log(site);
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image:
-      image && image.includes('http')
-        ? image
-        : `${siteUrl}${image || defaultImage}`,
+    image: image ? image : defaultImage,
     url: `${siteUrl}${pathname}`,
   };
 
