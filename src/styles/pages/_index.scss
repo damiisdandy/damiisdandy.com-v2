@@ -93,6 +93,34 @@
       margin: 0 auto;
       font-size: 2rem;
       text-align: center;
+      line-height: 3rem;
+    }
+  }
+  .Contact {
+    text-align: center;
+    h2 {
+      font-size: 2rem;
+    }
+    .Social {
+      margin-top: 1rem;
+      p {
+        font-size: 1.7rem;
+      }
+      .socials {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        width: 100%;
+        a {
+          &:link,
+          &:visited {
+            font-size: 3rem;
+            color: inherit;
+          }
+        }
+      }
     }
   }
   .Github {
@@ -117,6 +145,10 @@
         padding: 2rem;
         border-radius: 1rem;
         background-color: $dark-background-color-2;
+        border: 0.1rem solid transparent;
+        &:hover {
+          border-color: $primary-color;
+        }
         .title {
           display: flex;
           align-items: center;
@@ -182,6 +214,9 @@
       .Repos {
         .repo {
           background-color: $light-background-color-2;
+          &:hover {
+            border-color: $primary-color-2;
+          }
           .title,
           .description {
             color: #333;

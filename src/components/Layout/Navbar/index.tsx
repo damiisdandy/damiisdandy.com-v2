@@ -25,7 +25,7 @@ const LINKS: { name: string; url: string }[] = [
   },
   {
     name: 'contact me',
-    url: '/contact',
+    url: '/#contact-me',
   },
 ];
 

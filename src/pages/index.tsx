@@ -3,8 +3,17 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import useColorMode from '../hooks/useColorMode';
 import useFetch from '../hooks/useFetch';
-import { BsGithub, BsStar } from 'react-icons/bs';
+import {
+  BsGithub,
+  BsInstagram,
+  BsLinkedin,
+  BsStar,
+  BsTwitter,
+} from 'react-icons/bs';
 import LinkButton from '../components/UI/LinkButton';
+import { FaDev } from 'react-icons/fa';
+import { IconType } from 'react-icons';
+import { OFFICIAL_MAIL } from '../config';
 
 const FEATURED_REPOS = [
   'use-pagination',
@@ -12,6 +21,34 @@ const FEATURED_REPOS = [
   'zero-billion',
   'vlc-video-selector',
 ];
+
+const SOCIALS: {
+  icon: IconType;
+  url: string;
+}[] = [
+  {
+    icon: BsInstagram,
+    url: 'https://www.instagram.com/damil0la.jpg/',
+  },
+  {
+    icon: BsTwitter,
+    url: 'https://twitter.com/realdamiisdandy',
+  },
+  {
+    icon: BsGithub,
+    url: 'https://github.com/damiisdandy',
+  },
+  {
+    icon: BsLinkedin,
+    url: 'https://www.linkedin.com/in/damiisdandy',
+  },
+  {
+    icon: FaDev,
+    url: 'https://dev.to/damiisdandy',
+  },
+];
+
+const date = new Date();
 
 const Home = () => {
   const { isLightMode } = useColorMode();
@@ -137,11 +174,54 @@ const Home = () => {
       <div className="About section">
         <h1>about me</h1>
         <p className="story">
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-          tempora error sint laborum vitae repellat sunt veritatis tempore quas.
-          Illo magnam corrupti magni, aspernatur saepe deserunt, cum quidem
-          itaque neque nam et!"
+          Hey 👋🏿, My name is Damilola Onaopemipo Jerugba and I am a{' '}
+          <b>Fullstack web developer</b>, <b>Photographer</b>,{' '}
+          <b>Graphic designer</b> and <b>Digital artist</b>. I own a startup
+          called Jetron Mall, which comprises of an{' '}
+          <a
+            href="https://www.jetronmall.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="my-link"
+          >
+            E-commerce
+          </a>{' '}
+          section and{' '}
+          <a
+            href="https://ticket.jetronmall.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="my-link"
+          >
+            Jetron Ticket
+          </a>
+          . I have {date.getFullYear() - 2017}+ years of programming experience
+          and I love to write dev articles, I majored in Mechanical Engineering
+          and I currently work as a Software Engineer 🎉.
         </p>
+      </div>
+      <div id="contact-me" className="Contact section">
+        <h1>Contact Me</h1>
+        <h2>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`mailto:${OFFICIAL_MAIL}`}
+            className="my-link"
+          >
+            {OFFICIAL_MAIL}
+          </a>
+        </h2>
+        <div className="Social">
+          <p>Follow me on</p>
+          <div className="socials">
+            {SOCIALS.map(el => (
+              <a target="_blank" rel="noopener noreferrer" href={el.url}>
+                <el.icon />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="Github section">
         <h1>featured repos</h1>
