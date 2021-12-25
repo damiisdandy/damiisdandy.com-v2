@@ -1,0 +1,28 @@
+.LinkButton {
+  &:link,
+  &:visited {
+    color: rgba(#000, 0.8);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    background-color: $primary-color;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    &:hover {
+      transform: translateY(-0.2rem);
+    }
+    &:active {
+      transform: translateY(0.2rem) scale(0.95);
+    }
+  }
+}
+
+.light {
+  .LinkButton {
+    &:link,
+    &:visited {
+      color: rgba(#fff, 0.8);
+      background-color: $primary-color-2;
+    }
+  }
+}

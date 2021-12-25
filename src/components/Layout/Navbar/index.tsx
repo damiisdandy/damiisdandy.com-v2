@@ -23,6 +23,10 @@ const LINKS: { name: string; url: string }[] = [
     name: 'articles',
     url: '/articles',
   },
+  {
+    name: 'contact me',
+    url: '/contact',
+  },
 ];
 
 const Burger = ({
