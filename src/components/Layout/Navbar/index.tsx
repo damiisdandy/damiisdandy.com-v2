@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useColorMode from '../../../hooks/useColorMode';
-import useDisclosure from '../../../hooks/useDisclosure';
 import { BiSun, BiMoon } from 'react-icons/bi';
 import Sidebar from './Sidebar';
 import { Link } from 'gatsby';
 import { useLocation } from '@reach/router';
 import { motion } from 'framer-motion';
+import { useGlobalStoreContext } from '../../../context';
 
 const LINKS: { name: string; url: string }[] = [
   {
@@ -63,30 +63,41 @@ const ColorModeSwitch = () => {
 };
 
 const Navbar = () => {
-  const { isOpen, toggle } = useDisclosure(false);
-  const { pathname } = useLocation();
+  const { pathname, href } = useLocation();
+  const { state, dispatch } = useGlobalStoreContext();
+
+  const toggle = () => dispatch({ type: 'TOGGLE_SIDEBAR' });
+
+  useEffect(() => {
+    dispatch({
+      type: 'SET_SIDEBAR',
+      payload: false,
+    });
+  }, [href]);
   return (
-    <motion.nav
-      animate={{
-        y: ['-100%', '0%'],
-      }}
-      className="Navbar"
-    >
-      <Burger isActive={isOpen} action={toggle} />
-      <div className="Links">
-        {LINKS.map(el => (
-          <Link
-            key={el.url}
-            to={el.url}
-            className={`link ${pathname === el.url && 'active'}`}
-          >
-            {el.name}
-          </Link>
-        ))}
-      </div>
-      <ColorModeSwitch />
-      <Sidebar urls={LINKS} isOpen={isOpen} />
-    </motion.nav>
+    <>
+      <motion.nav
+        animate={{
+          y: ['-100%', '0%'],
+        }}
+        className="Navbar"
+      >
+        <Burger isActive={state.isSidebarOpen} action={toggle} />
+        <div className="Links">
+          {LINKS.map(el => (
+            <Link
+              key={el.url}
+              to={el.url}
+              className={`link ${pathname === el.url && 'active'}`}
+            >
+              {el.name}
+            </Link>
+          ))}
+        </div>
+        <ColorModeSwitch />
+      </motion.nav>
+      <Sidebar urls={LINKS} isOpen={state.isSidebarOpen} />
+    </>
   );
 };
 

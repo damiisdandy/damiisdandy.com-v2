@@ -24,6 +24,7 @@ html {
     background-color: $light-background-color;
   }
   .container {
+    width: 100%;
     max-width: 900px;
     height: 100%;
     margin: 0 auto;
@@ -74,6 +75,10 @@ html {
   background-color: #555;
   color: #222;
   border-radius: 0.3rem;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .light {

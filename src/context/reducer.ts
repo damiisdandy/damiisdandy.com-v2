@@ -18,6 +18,15 @@ const reducer: Reducer = (state, action) => {
         isLightmode: action.payload === 'light' ? true : false,
       };
       break;
+    case 'TOGGLE_SIDEBAR':
+      returnValue = { ...state, isSidebarOpen: !state.isSidebarOpen };
+      break;
+    case 'SET_SIDEBAR':
+      returnValue = {
+        ...state,
+        isSidebarOpen: action.payload,
+      };
+      break;
     default:
       throw new Error(`No Action Type (${action.type})`);
   }

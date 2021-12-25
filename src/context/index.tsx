@@ -10,6 +10,7 @@ import Reducer from './reducer';
 
 export const initialState: Store = {
   isLightmode: false,
+  isSidebarOpen: false,
 };
 
 export const globalStoreContext = createContext<{

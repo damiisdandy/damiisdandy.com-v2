@@ -10,8 +10,9 @@ interface Seo {
 
 interface Store {
   isLightmode: boolean;
+  isSidebarOpen: boolean;
 }
-type ActionTypes = 'INIT' | 'TOGGLE_MODE' | 'SET_MODE';
+type ActionTypes = 'INIT' | 'TOGGLE_MODE' | 'SET_MODE' | 'TOGGLE_SIDEBAR' | 'SET_SIDEBAR';
 
 interface Action {
   type: ActionTypes;
