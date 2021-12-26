@@ -81,9 +81,31 @@ html {
   overflow: hidden;
 }
 
+.scroll-to-top {
+  background-color: $dark-background-color-2;
+  color: inherit;
+  font-size: 3rem;
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 2rem;
+  right: -4rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1rem 1rem rgba(black, 0.3);
+  &.active {
+    right: 1.5rem;
+  }
+}
+
 .light {
   .gray-text {
     color: #888;
+  }
+  .scroll-to-top {
+    background-color: $light-background-color-2;
   }
   .my-link {
     &:link,
