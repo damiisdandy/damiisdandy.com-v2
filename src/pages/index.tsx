@@ -16,6 +16,7 @@ import { IconType } from 'react-icons';
 import { OFFICIAL_MAIL } from '../config';
 import Seo from '../components/Seo';
 import { motion } from 'framer-motion';
+import Repo from '../components/Repo';
 
 const FEATURED_REPOS = [
   'use-pagination',
@@ -342,28 +343,14 @@ const Home = () => {
                   (a: any, b: any) => b.stargazers_count - a.stargazers_count
                 )
                 .map((repo: any) => (
-                  <motion.div
-                    variants={scaleVariant}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: '20%' }}
+                  <Repo
                     key={repo.id}
-                    className="repo"
-                  >
-                    <div className="title">
-                      <BsGithub />
-                      <p>{repo.full_name}</p>
-                    </div>
-                    <p className="name">{repo.name}</p>
-                    <p className="description">{repo.description}</p>
-                    <div className="bottom">
-                      <div className="star">
-                        <BsStar />
-                        <p className="star-num">{repo.stargazers_count}</p>
-                      </div>
-                      <LinkButton href={repo.html_url}>Learn more</LinkButton>
-                    </div>
-                  </motion.div>
+                    description={repo.description}
+                    fullName={repo.full_name}
+                    name={repo.name}
+                    stars={repo.stargazers}
+                    url={repo.html_url}
+                  />
                 ))}
             </motion.div>
           )}

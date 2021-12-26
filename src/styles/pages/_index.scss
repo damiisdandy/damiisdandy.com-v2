@@ -140,49 +140,6 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 3rem;
-      .repo {
-        padding: 2rem;
-        border-radius: 1rem;
-        background-color: $dark-background-color-2;
-        border: 0.1rem solid transparent;
-        &:hover {
-          border-color: $primary-color;
-        }
-        .title {
-          display: flex;
-          align-items: center;
-          font-size: 1.4rem;
-          gap: 1rem;
-          color: #ccc;
-          margin-bottom: 1.5rem;
-        }
-        .name {
-          font-size: 2rem;
-          font-family: monospace;
-          margin-bottom: 1.5rem;
-        }
-        .description {
-          font-size: 1.5rem;
-          margin-bottom: 1.5rem;
-          line-height: 2rem;
-          color: #ccc;
-        }
-        .bottom {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 100%;
-          .star {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-size: 1.4rem;
-            &-num {
-              font-weight: 700;
-            }
-          }
-        }
-      }
     }
   }
 }
@@ -206,20 +163,6 @@
         box-shadow: 0 1rem 2rem rgba(black, 0.2);
         p {
           color: #333;
-        }
-      }
-    }
-    .Github {
-      .Repos {
-        .repo {
-          background-color: $light-background-color-2;
-          &:hover {
-            border-color: $primary-color-2;
-          }
-          .title,
-          .description {
-            color: #333;
-          }
         }
       }
     }
@@ -250,7 +193,7 @@
     .Github {
       .Repos {
         grid-template-columns: 1fr 1fr;
-        .repo {
+        .Repo {
           position: relative;
           justify-content: center;
           .description {

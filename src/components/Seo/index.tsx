@@ -2,12 +2,14 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
+import useColorMode from '../../hooks/useColorMode';
 
-const date = new Date();
+const thisDate = new Date();
 
-const Seo = ({ title, description, article, image, author }: Seo) => {
+const Seo = ({ title, description, article, image, author, date }: Seo) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
+  const { isLightMode } = useColorMode();
   const {
     defaultTitle,
     titleTemplate,
@@ -15,7 +17,6 @@ const Seo = ({ title, description, article, image, author }: Seo) => {
     siteUrl,
     defaultImage,
     twitterUsername,
-    colorTheme,
     buildTime,
   } = site.siteMetadata;
 
@@ -43,7 +44,7 @@ const Seo = ({ title, description, article, image, author }: Seo) => {
       '@type': 'Person',
       name: 'Damilola Jerugba',
     },
-    copyrightYear: date.getFullYear(),
+    copyrightYear: thisDate.getFullYear(),
     creator: {
       '@type': 'Person',
       name: 'Damilola Jerugba',
@@ -52,8 +53,8 @@ const Seo = ({ title, description, article, image, author }: Seo) => {
       '@type': 'Person',
       name: 'Damilola Jerugba',
     },
-    datePublished: buildTime,
-    dateModified: buildTime,
+    datePublished: date ? date : buildTime,
+    dateModified: date ? date : buildTime,
     image: {
       '@type': 'ImageObject',
       url: `${seo.image}`,
@@ -85,7 +86,7 @@ const Seo = ({ title, description, article, image, author }: Seo) => {
         '@type': 'Person',
         name: author ? author : 'Damilola Jerugba',
       },
-      copyrightYear: date.getFullYear(),
+      copyrightYear: thisDate.getFullYear(),
       creator: {
         '@type': 'Person',
         name: author ? author : 'Damilola Jerugba',
@@ -98,8 +99,8 @@ const Seo = ({ title, description, article, image, author }: Seo) => {
           url: `${seo.image}`,
         },
       },
-      datePublished: buildTime,
-      dateModified: buildTime,
+      datePublished: date ? date : buildTime,
+      dateModified: date ? date : buildTime,
       description: seo.description,
       headline: seo.title,
       inLanguage: 'en',
@@ -139,13 +140,22 @@ const Seo = ({ title, description, article, image, author }: Seo) => {
       <meta name="description" content={seo.description} />
       <meta name="image" content={`${seo.image}`} />
       {/* PWA */}
-      <meta content={colorTheme} name="theme-color" />
-      <meta content={colorTheme} name="msapplication-TileColor" />
-      <meta content={colorTheme} name="msapplication-TileColor" />
+      <meta content={isLightMode ? '#4daddb' : '#ffe367'} name="theme-color" />
+      <meta
+        content={isLightMode ? '#4daddb' : '#ffe367'}
+        name="msapplication-TileColor"
+      />
+      <meta
+        content={isLightMode ? '#4daddb' : '#ffe367'}
+        name="msapplication-TileColor"
+      />
       <meta content="yes" name="mobile-web-app-capable" />
       <meta content="OutlawVille" name="application-name" />
       <meta content="yes" name="apple-mobile-web-app-capable" />
-      <meta content={colorTheme} name="apple-mobile-web-app-status-bar-style" />
+      <meta
+        content={isLightMode ? '' : ''}
+        name="apple-mobile-web-app-status-bar-style"
+      />
       <meta content="OutlawVille" name="apple-mobile-web-app-title" />
       {/* open graph */}
       <meta content="website" property="og:type" />
@@ -189,13 +199,13 @@ export default Seo;
 const query = graphql`
   query SEO {
     site {
-      buildTime(formatString: "YYYY-MM-DD")
+      buildTime: buildTime(formatString: "YYYY-MM-DD")
       siteMetadata {
-        defaultTitle: title
+        title
         titleTemplate
-        defaultDescription: description
+        description
         siteUrl: url
-        defaultImage: image
+        image
         twitterUsername
         colorTheme
       }

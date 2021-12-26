@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         index === posts.length - 1 ? null : posts[index + 1].id;
 
       createPage({
-        path: post.fields.slug,
+        path: `/articles${post.fields.slug}`,
         component: blogPost,
         context: {
           id: post.id,
@@ -107,6 +107,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      repo: String
+      author: String
+      image: String
     }
 
     type Fields {

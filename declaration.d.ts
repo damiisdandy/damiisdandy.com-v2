@@ -6,6 +6,7 @@ interface Seo {
   description?: string;
   article?: boolean;
   author?: string;
+  date?: string;
 }
 
 interface Store {
@@ -20,3 +21,46 @@ interface Action {
 }
 
 type Reducer = (state: Store, action: Action) => Store;
+
+
+interface Frontmatter {
+  title: string;
+  description: string;
+  date: string;
+  repo: string;
+  author: string;
+  image: string;
+}
+interface MarkdownRemark {
+  id: string;
+  frontmatter: Frontmatter;
+  excerpt: any;
+  html: string;
+  timeToRead: number;
+  fields: {
+    slug: string;
+  }
+}
+
+interface SiteMetaData {
+  title: string
+  description: string
+  author: {
+    name: string;
+    summary: string;
+  }
+  siteUrl: string
+  social: Social
+  titleTemplate: string
+  url: string
+  image: string
+  twitterUsername: string
+  colorTheme: string
+}
+
+interface BlogPost {
+  site: SiteMetaData;
+  markdownRemark: MarkdownRemark;
+  previous: MarkdownRemark;
+  next: MarkdownRemark;
+}

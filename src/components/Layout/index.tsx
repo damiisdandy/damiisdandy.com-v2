@@ -16,6 +16,7 @@ const Layout: React.FC = ({ children }) => {
   useEffect(() => {
     // fetch localStorage data and fill global state
     const storedData = localStorage.getItem(CONTEXT_PERSIST_NAME);
+    console.log(storedData);
     if (storedData)
       dispatch({
         type: 'INIT',
