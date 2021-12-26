@@ -16,7 +16,6 @@ import { IconType } from 'react-icons';
 import { OFFICIAL_MAIL } from '../config';
 import Seo from '../components/Seo';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 const FEATURED_REPOS = [
   'use-pagination',
@@ -79,6 +78,9 @@ const scaleVariant = {
   show: {
     opacity: 1,
     scale: 1,
+    transition: {
+      duration: 0.3,
+    },
   },
 };
 
@@ -89,10 +91,6 @@ const Home = () => {
   const { data, error } = useFetch(
     'https://api.github.com/users/damiisdandy/repos'
   );
-  const [whatIDoRef, whatIDoInview] = useInView();
-  const [aboutRef, aboutInView] = useInView();
-  const [contactRef, contactInView] = useInView();
-  const [githubRef, githubInView] = useInView();
 
   return (
     <>
@@ -101,12 +99,13 @@ const Home = () => {
         description="A short overview about Damilola Jerugba"
         image="/seo/index.png"
       />
-      <div className="Home" key={isLightMode.toString()}>
-        <div className="Heading section">
+      <div className="Home">
+        <div className="Heading section" key={isLightMode.toString()}>
           <motion.div
-            animate={{
+            whileInView={{
               scale: [0, 1],
             }}
+            viewport={{ once: true }}
             className="image"
           >
             <StaticImage
@@ -120,7 +119,8 @@ const Home = () => {
           <motion.div
             variants={containerVariant}
             initial="hidden"
-            animate="show"
+            whileInView="show"
+            viewport={{ once: true }}
             className="intro"
           >
             <motion.h1 variants={unveilVariant}>damilola jerugba</motion.h1>
@@ -138,19 +138,16 @@ const Home = () => {
             </motion.p>
           </motion.div>
         </div>
-        <div
-          className="WhatIDo section"
-          key={`what-i-do-${whatIDoInview}`}
-          ref={whatIDoRef}
-        >
+        <div className="WhatIDo section">
           <h1>what i do</h1>
-          <motion.div
-            variants={containerVariant}
-            initial="hidden"
-            animate="show"
-            className="Talents"
-          >
-            <motion.div variants={scaleVariant} className="talent">
+          <motion.div className="Talents">
+            <motion.div
+              variants={scaleVariant}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '20%' }}
+              className="talent"
+            >
               <StaticImage
                 src="../images/memoji/frontend.png"
                 alt="my memoji love"
@@ -166,7 +163,13 @@ const Home = () => {
                 <span className="code">VueJs</span> and more.
               </p>
             </motion.div>
-            <motion.div variants={scaleVariant} className="talent">
+            <motion.div
+              variants={scaleVariant}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '20%' }}
+              className="talent"
+            >
               <StaticImage
                 src="../images/memoji/backend.png"
                 alt="my memoji love"
@@ -186,7 +189,13 @@ const Home = () => {
                 <span className="code">MySQL</span> and more.
               </p>
             </motion.div>
-            <motion.div variants={scaleVariant} className="talent">
+            <motion.div
+              variants={scaleVariant}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '20%' }}
+              className="talent"
+            >
               <StaticImage
                 src="../images/memoji/articles.png"
                 alt="my memoji love"
@@ -207,7 +216,13 @@ const Home = () => {
                 </a>
               </p>
             </motion.div>
-            <motion.div variants={scaleVariant} className="talent">
+            <motion.div
+              variants={scaleVariant}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '20%' }}
+              className="talent"
+            >
               <StaticImage
                 src="../images/memoji/scripting.png"
                 alt="my memoji love"
@@ -238,14 +253,14 @@ const Home = () => {
         <div className="Articles section">
           <h1>featured articles</h1>
         </div>
-        <div className="About section" ref={aboutRef}>
+        <div className="About section">
           <h1>about me</h1>
           <motion.p
-            key={`about-${aboutInView}`}
-            animate={{
+            whileInView={{
               opacity: [0, 1],
               y: ['-20px', '0px'],
             }}
+            viewport={{ once: true, margin: '20%' }}
             className="story"
           >
             Hey 👋🏿, My name is Damilola Onaopemipo Jerugba. I am a{' '}
@@ -277,11 +292,10 @@ const Home = () => {
         <motion.div
           variants={containerVariant}
           initial="hidden"
-          animate="show"
+          whileInView="show"
+          viewport={{ once: true }}
           id="contact-me"
           className="Contact section"
-          ref={contactRef}
-          key={`contact-${contactInView}`}
         >
           <h1>Contact Me</h1>
           <motion.h2 variants={unveilVariant}>
@@ -321,14 +335,7 @@ const Home = () => {
               <h4>Problem fetching Github repos :(</h4>
             </div>
           ) : (
-            <motion.div
-              ref={githubRef}
-              key={`github-${githubInView}`}
-              variants={containerVariant}
-              initial="hidden"
-              animate="show"
-              className="Repos"
-            >
+            <motion.div variants={containerVariant} className="Repos">
               {data
                 .filter((el: any) => FEATURED_REPOS.includes(el.name))
                 .sort(
@@ -337,6 +344,9 @@ const Home = () => {
                 .map((repo: any) => (
                   <motion.div
                     variants={scaleVariant}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: '20%' }}
                     key={repo.id}
                     className="repo"
                   >

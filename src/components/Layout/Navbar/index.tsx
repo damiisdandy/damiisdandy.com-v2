@@ -18,7 +18,7 @@ const LINKS: { name: string; url: string }[] = [
   },
   {
     name: 'resume',
-    url: '/#',
+    url: '/resume',
   },
   {
     name: 'articles',
@@ -77,6 +77,7 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
+        key={`navbar-${href}`}
         animate={{
           y: ['-100%', '0%'],
         }}

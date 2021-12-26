@@ -1,15 +1,14 @@
 .FourZeroFour {
+  display: flex;
+  height: calc(100vh - (17rem + #{$footer-height}));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   h1 {
-    font-size: 5rem;
+    font-size: 7rem;
   }
   h2 {
-    font-size: 2.5rem;
-  }
-  .image {
-    margin: 0 auto;
-    margin-top: 2rem;
-    max-width: 70rem;
-    border-radius: 1rem;
+    font-size: 3.5rem;
   }
 }
