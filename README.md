@@ -28,6 +28,7 @@
 ### Blogs posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Custom React useFetch&lpar;&rpar; hook for data fetching with revalidation](https://dev.to/brimble/custom-react-usefetch-hook-for-data-fetching-with-revalidation-f7k)
 - [Pagination in Javascript and React, with a custom usePagination&lpar;&rpar; hook](https://dev.to/damiisdandy/pagination-in-javascript-and-react-with-a-custom-usepagination-hook-1mgo)
 - [Ultimate Guide to setup React Context API with a custom hook [Typescript]](https://dev.to/damiisdandy/ultimate-guide-to-setup-react-context-api-with-a-custom-hook-typescript-27kn)
 <!-- BLOG-POST-LIST:END -->
