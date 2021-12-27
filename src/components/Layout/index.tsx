@@ -20,7 +20,7 @@ const Layout: React.FC = ({ children }) => {
     if (storedData)
       dispatch({
         type: 'INIT',
-        payload: JSON.parse(storedData),
+        payload: { ...JSON.parse(storedData), isSidebarOpen: false },
       });
   }, []);
   return (
