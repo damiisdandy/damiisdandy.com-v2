@@ -5,7 +5,7 @@ module.exports = {
     titleTemplate: 'Damiisdandy 👨‍💻· %s',
     description: `Damiisdandy's official website`,
     url: 'https://damiisdandy.com', // No trailing slash allowed!
-    image: '/images/og.jpg', // Path to your image you placed in the 'static' folder
+    image: '/seo/index.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@realDamiisdandy',
     colorTheme: '#ffe367',
   },
@@ -119,7 +119,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,

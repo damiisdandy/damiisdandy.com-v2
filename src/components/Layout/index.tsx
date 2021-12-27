@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import useColorMode from '../../hooks/useColorMode';
-import { useGlobalStoreContext } from '../../context';
+import { useGlobalStoreContext, initialState } from '../../context';
 import { CONTEXT_PERSIST_NAME } from '../../config';
 import { Helmet } from 'react-helmet';
 import { IoIosArrowUp } from 'react-icons/io';
@@ -15,13 +15,13 @@ const Layout: React.FC = ({ children }) => {
 
   useEffect(() => {
     // fetch localStorage data and fill global state
-    const storedData = localStorage.getItem(CONTEXT_PERSIST_NAME);
-    console.log(storedData);
-    if (storedData)
-      dispatch({
-        type: 'INIT',
-        payload: { ...JSON.parse(storedData), isSidebarOpen: false },
-      });
+    const rawLocalData = localStorage.getItem(CONTEXT_PERSIST_NAME);
+    const localData = rawLocalData ? JSON.parse(rawLocalData) : initialState;
+    const returnValue: Store = { ...initialState, ...localData };
+    dispatch({
+      type: 'INIT',
+      payload: { ...returnValue, isSidebarOpen: false },
+    });
   }, []);
   return (
     <>

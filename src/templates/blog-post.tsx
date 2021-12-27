@@ -62,7 +62,7 @@ const BlogPost = ({ data }: { data: BlogPost }) => {
               description={repoInfo.description}
               fullName={repoInfo.full_name}
               name={repoInfo.name}
-              stars={repoInfo.stargazers}
+              stars={repoInfo.stargazers_count}
               url={repoInfo.html_url}
             />
           ))}

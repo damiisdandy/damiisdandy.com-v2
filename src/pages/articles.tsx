@@ -1,7 +1,8 @@
-import { graphql, Link } from 'gatsby';
+import { graphql, navigate, Link } from 'gatsby';
 import React, { ChangeEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 import useColorMode from '../hooks/useColorMode';
+import Seo from '../components/Seo';
 
 interface FrontmatterSlug extends Frontmatter {
   slug: string;
@@ -49,52 +50,60 @@ const Articles = ({ data }: { data: any }) => {
   };
 
   return (
-    <div className="Articles">
-      <motion.div
-        key={`Articles-${isLightMode}`}
-        variants={containerVariants}
-        whileInView="show"
-        initial="hide"
-        viewport={{ once: true }}
-      >
-        <motion.h1 variants={unveilVariants} className="heading">
-          My Articles ✍🏿
-        </motion.h1>
-        <motion.input
-          variants={unveilVariants}
-          className="input"
-          value={keyword}
-          onChange={handleChange}
-          type="text"
-          autoFocus
-          placeholder="Search for article"
-        />
-      </motion.div>
-      {keyword.length >= 3 && posts.length === 0 ? (
-        <h1>No article matches "{keyword}" :(</h1>
-      ) : (
-        <div className="posts">
-          {posts.map(el => (
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: true }}
-              className="post"
-              key={el.title}
-            >
-              <div className="image">
-                <img src={el.image} alt={`${el.title} poster`} />
-              </div>
-              <div className="body">
-                <Link to={`/articles${el.slug}`}>{el.title}</Link>
-                <p>{el.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      )}
-    </div>
+    <>
+      <Seo
+        title="My Articles"
+        description="Articles written by Damilola Jerugba"
+        image="/seo/articles.png"
+      />
+      <div className="Articles">
+        <motion.div
+          key={`Articles-${isLightMode}`}
+          variants={containerVariants}
+          whileInView="show"
+          initial="hide"
+          viewport={{ once: true }}
+        >
+          <motion.h1 variants={unveilVariants} className="heading">
+            My Articles ✍🏿
+          </motion.h1>
+          <motion.input
+            variants={unveilVariants}
+            className="input"
+            value={keyword}
+            onChange={handleChange}
+            type="text"
+            autoFocus
+            placeholder="Search for article"
+          />
+        </motion.div>
+        {keyword.length >= 3 && posts.length === 0 ? (
+          <h1>No article matches "{keyword}" :(</h1>
+        ) : (
+          <div className="posts">
+            {posts.map(el => (
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                viewport={{ once: true }}
+                className="post"
+                key={el.title}
+                onClick={() => navigate(`/articles${el.slug}`)}
+              >
+                <div className="image">
+                  <img src={el.image} alt={`${el.title} poster`} />
+                </div>
+                <div className="body">
+                  <Link to={`/articles${el.slug}`}>{el.title}</Link>
+                  <p>{el.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

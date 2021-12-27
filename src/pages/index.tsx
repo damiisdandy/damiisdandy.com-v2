@@ -267,7 +267,7 @@ const Home = () => {
             Hey 👋🏿, My name is Damilola Onaopemipo Jerugba. I am a{' '}
             <b>Fullstack web developer</b>, <b>Photographer</b>,{' '}
             <b>Graphic designer</b>, and <b>Digital artist</b>. I own a startup
-            called Jetron Mall, which comprises an
+            called Jetron Mall, which comprises an{' '}
             <a
               href="https://www.jetronmall.com"
               target="_blank"

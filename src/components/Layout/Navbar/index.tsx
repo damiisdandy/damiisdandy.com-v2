@@ -67,13 +67,8 @@ const Navbar = () => {
   const { state, dispatch } = useGlobalStoreContext();
 
   const toggle = () => dispatch({ type: 'TOGGLE_SIDEBAR' });
+  const closeSidebar = () => dispatch({ type: 'SET_SIDEBAR', payload: false });
 
-  useEffect(() => {
-    dispatch({
-      type: 'SET_SIDEBAR',
-      payload: false,
-    });
-  }, [href]);
   return (
     <>
       <motion.nav
@@ -97,7 +92,11 @@ const Navbar = () => {
         </div>
         <ColorModeSwitch />
       </motion.nav>
-      <Sidebar urls={LINKS} isOpen={state.isSidebarOpen} />
+      <Sidebar
+        urls={LINKS}
+        isOpen={state.isSidebarOpen}
+        action={closeSidebar}
+      />
     </>
   );
 };

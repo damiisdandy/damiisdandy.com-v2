@@ -7,7 +7,7 @@ import useColorMode from '../../hooks/useColorMode';
 const thisDate = new Date();
 
 const Seo = ({ title, description, article, image, author, date }: Seo) => {
-  const { pathname } = useLocation();
+  const { href } = useLocation();
   const { site } = useStaticQuery(query);
   const { isLightMode } = useColorMode();
   const {
@@ -24,7 +24,7 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: image ? image : defaultImage,
-    url: `${siteUrl}${pathname}`,
+    url: href,
   };
 
   const schemaOrgWebPage = {
@@ -64,11 +64,27 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
   const itemListElement = [
     {
       '@type': 'ListItem',
+      position: 1,
       item: {
         '@id': siteUrl,
-        name: 'Homepage',
+        name: 'Home',
       },
+    },
+    {
+      '@type': 'ListItem',
       position: 1,
+      item: {
+        '@id': siteUrl + '/my-works',
+        name: 'My Works',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@id': siteUrl,
+        name: siteUrl + '/articles',
+      },
     },
   ];
 
@@ -136,7 +152,7 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       <meta charSet="utf-8" />
       <meta content="ie=edge" httpEquiv="x-ua-compatible" />
       <meta content="initial-scale=1, width=device-width" name="viewport" />
-      <link rel="canonical" href={seo.url} />
+      <link rel="canonical" href={href} />
       <meta name="description" content={seo.description} />
       <meta name="image" content={`${seo.image}`} />
       {/* PWA */}
@@ -204,7 +220,7 @@ const query = graphql`
         title
         titleTemplate
         description
-        siteUrl: url
+        siteUrl
         image
         twitterUsername
         colorTheme
