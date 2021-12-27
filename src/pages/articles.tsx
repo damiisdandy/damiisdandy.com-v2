@@ -70,7 +70,6 @@ const Articles = ({ data }: { data: any }) => {
             value={keyword}
             onChange={handleChange}
             type="text"
-            autoFocus
             placeholder="Search for article"
           />
         </motion.div>
