@@ -31,6 +31,11 @@ interface Frontmatter {
   author: string;
   image: string;
 }
+
+interface FrontmatterSlug extends Frontmatter {
+  slug: string;
+}
+
 interface MarkdownRemark {
   id: string;
   frontmatter: Frontmatter;

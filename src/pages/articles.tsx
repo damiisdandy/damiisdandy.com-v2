@@ -3,10 +3,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 import useColorMode from '../hooks/useColorMode';
 import Seo from '../components/Seo';
-
-interface FrontmatterSlug extends Frontmatter {
-  slug: string;
-}
+import Post from '../components/Post';
 
 const containerVariants = {
   hide: {},
@@ -82,23 +79,7 @@ const Articles = ({ data }: { data: any }) => {
         ) : (
           <div className="posts">
             {posts.map(el => (
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                viewport={{ once: true }}
-                className="post"
-                key={el.title}
-                onClick={() => navigate(`/articles${el.slug}`)}
-              >
-                <div className="image">
-                  <img src={el.image} alt={`${el.title} poster`} />
-                </div>
-                <div className="body">
-                  <Link to={`/articles${el.slug}`}>{el.title}</Link>
-                  <p>{el.description}</p>
-                </div>
-              </motion.div>
+              <Post key={el.title} {...el} />
             ))}
           </div>
         )}

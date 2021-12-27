@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import useColorMode from '../hooks/useColorMode';
 import useFetch from '../hooks/useFetch';
-import {
-  BsGithub,
-  BsInstagram,
-  BsLinkedin,
-  BsStar,
-  BsTwitter,
-} from 'react-icons/bs';
-import LinkButton from '../components/UI/LinkButton';
+import { BsGithub, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
 import { FaDev } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 import { OFFICIAL_MAIL } from '../config';
 import Seo from '../components/Seo';
 import { motion } from 'framer-motion';
 import Repo from '../components/Repo';
+import Post from '../components/Post';
 
 const FEATURED_REPOS = [
   'use-pagination',
@@ -87,7 +81,17 @@ const scaleVariant = {
 
 const date = new Date();
 
-const Home = () => {
+const Home = ({ data: posts }: { data: any }) => {
+  const recentPosts: FrontmatterSlug[] = posts.allMarkdownRemark.edges
+    .map((el: any) => ({ ...el.node.frontmatter, slug: el.node.fields.slug }))
+    .sort(
+      (a: FrontmatterSlug, b: FrontmatterSlug) =>
+        // @ts-ignore
+        new Date(b.date) - new Date(a.date)
+    )
+    .slice(0, 4);
+
+  console.log('here', recentPosts);
   const { isLightMode } = useColorMode();
   const { data, error } = useFetch(
     'https://api.github.com/users/damiisdandy/repos'
@@ -252,7 +256,12 @@ const Home = () => {
           </motion.div>
         </div>
         <div className="Articles section">
-          <h1>featured articles</h1>
+          <h1>recent articles</h1>
+          <div className="posts">
+            {recentPosts.map(el => (
+              <Post key={el.title} {...el} />
+            ))}
+          </div>
         </div>
         <div className="About section">
           <h1>about me</h1>
@@ -361,3 +370,24 @@ const Home = () => {
 };
 
 export default Home;
+
+export const pageQuery = graphql`
+  query BlogPostQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            description
+            image
+            title
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
