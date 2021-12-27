@@ -129,7 +129,7 @@ const Home = () => {
               Full stack developer {isLightMode ? ' 💙' : '⚡'}
             </motion.h2>
             <motion.p variants={unveilVariant} className="about">
-              Hey! Fun fact, I'm in love with programming as whole, especially{' '}
+              Hey! Fun fact, I'm in love with programming as a whole, especially{' '}
               <b>Web Development</b> (and anime), I build high performating web
               applications that meets my client's needs. I also love sharing my
               knowledge so I write dev{' '}
