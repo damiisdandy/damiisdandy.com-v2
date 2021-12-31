@@ -7,7 +7,7 @@ import useColorMode from '../../hooks/useColorMode';
 const thisDate = new Date();
 
 const Seo = ({ title, description, article, image, author, date }: Seo) => {
-  const { href } = useLocation();
+  const { href, host } = useLocation();
   const { site } = useStaticQuery(query);
   const { isLightMode } = useColorMode();
   const {
@@ -166,13 +166,13 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
         name="msapplication-TileColor"
       />
       <meta content="yes" name="mobile-web-app-capable" />
-      <meta content="OutlawVille" name="application-name" />
+      <meta content="damiisdandy" name="application-name" />
       <meta content="yes" name="apple-mobile-web-app-capable" />
       <meta
         content={isLightMode ? '' : ''}
         name="apple-mobile-web-app-status-bar-style"
       />
-      <meta content="OutlawVille" name="apple-mobile-web-app-title" />
+      <meta content="damiisdandy" name="apple-mobile-web-app-title" />
       {/* open graph */}
       <meta content="website" property="og:type" />
       <meta content="en-US" property="og:locale" />
@@ -193,7 +193,9 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
       )}
-      {seo.image && <meta name="twitter:image" content={`${seo.image}`} />}
+      {seo.image && (
+        <meta name="twitter:image" content={`https://${host}${seo.image}`} />
+      )}
       {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
       {!article && (
         <script type="application/ld+json">

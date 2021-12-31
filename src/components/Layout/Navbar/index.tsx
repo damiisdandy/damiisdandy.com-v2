@@ -18,7 +18,7 @@ const LINKS: { name: string; url: string }[] = [
   },
   {
     name: 'resume',
-    url: '/resume',
+    url: '/Damilola-Jerugba-Full-Stack-Developer-Dec-2021.pdf',
   },
   {
     name: 'articles',

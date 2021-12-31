@@ -91,7 +91,6 @@ const Home = ({ data: posts }: { data: any }) => {
     )
     .slice(0, 4);
 
-  console.log('here', recentPosts);
   const { isLightMode } = useColorMode();
   const { data, error } = useFetch(
     'https://api.github.com/users/damiisdandy/repos'
