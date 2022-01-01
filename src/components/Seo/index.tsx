@@ -20,11 +20,10 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
     buildTime,
   } = site.siteMetadata;
 
-  const seo = {
+  const seo: Seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: image ? image : defaultImage,
-    url: href,
   };
 
   const schemaOrgWebPage = {
@@ -194,7 +193,14 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && (
-        <meta name="twitter:image" content={`https://${host}${seo.image}`} />
+        <meta
+          name="twitter:image"
+          content={
+            seo.image.startsWith('http')
+              ? seo.image
+              : `https://${host}${seo.image}`
+          }
+        />
       )}
       {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
       {!article && (
