@@ -95,6 +95,13 @@
       line-height: 3rem;
     }
   }
+  .Spotify {
+    .container {
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 1rem 2rem rgba(black, 0.3);
+    }
+  }
   .Contact {
     text-align: center;
     h2 {
@@ -164,6 +171,11 @@
         p {
           color: #333;
         }
+      }
+    }
+    .Spotify {
+      .container {
+        box-shadow: 0 1rem 2rem rgba(black, 0.2);
       }
     }
   }

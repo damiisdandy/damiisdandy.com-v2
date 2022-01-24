@@ -11,6 +11,7 @@ import Seo from '../components/Seo';
 import { motion } from 'framer-motion';
 import Repo from '../components/Repo';
 import Post from '../components/Post';
+import Spotify from '../components/Spotify';
 
 const FEATURED_REPOS = [
   'use-pagination',
@@ -298,6 +299,19 @@ const Home = ({ data: posts }: { data: any }) => {
             Engineering. I currently work as a Software Engineer 🎉.
           </motion.p>
         </div>
+        <div className="Spotify section">
+          <h1>spotify playlist</h1>
+          <motion.div
+            whileInView={{
+              opacity: [0, 1],
+              y: ['-20px', '0px'],
+            }}
+            viewport={{ once: true, margin: '20%' }}
+            className="container"
+          >
+            <Spotify />
+          </motion.div>
+        </div>
         <motion.div
           variants={containerVariant}
           initial="hidden"
@@ -341,7 +355,7 @@ const Home = ({ data: posts }: { data: any }) => {
             </div>
           ) : error ? (
             <div className="error">
-              <h4>Problem fetching Github repos :(</h4>
+              <h4>problem fetching Github repos :(</h4>
             </div>
           ) : (
             <motion.div variants={containerVariant} className="Repos">
