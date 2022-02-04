@@ -274,7 +274,7 @@ const Home = ({ data: posts }: { data: any }) => {
             className="story"
           >
             Hey 👋🏿, My name is Damilola Onaopemipo Jerugba. I am a{' '}
-            <b>Full Stack Developer</b>, <b>Photographer</b>,{' '}
+            <b>FullStack Developer</b>, <b>Photographer</b>,{' '}
             <b>Graphic designer</b>, and <b>Digital artist</b>. I own a startup
             called Jetron Mall, which comprises an{' '}
             <a
