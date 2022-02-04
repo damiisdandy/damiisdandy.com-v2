@@ -134,9 +134,9 @@ const Home = ({ data: posts }: { data: any }) => {
             </motion.h2>
             <motion.p variants={unveilVariant} className="about">
               Hey! Fun fact, I'm in love with programming as a whole, especially{' '}
-              <b>Web Development</b> (and anime), I build high performating web
+              <b>Web Development</b> (and anime), I build high performant web
               applications that meets my client's needs. I also love sharing my
-              knowledge so I write dev{' '}
+              knowledge, so I write dev{' '}
               <Link className="my-link" to="/articles">
                 articles.
               </Link>
@@ -274,7 +274,7 @@ const Home = ({ data: posts }: { data: any }) => {
             className="story"
           >
             Hey 👋🏿, My name is Damilola Onaopemipo Jerugba. I am a{' '}
-            <b>Fullstack web developer</b>, <b>Photographer</b>,{' '}
+            <b>Full Stack Developer</b>, <b>Photographer</b>,{' '}
             <b>Graphic designer</b>, and <b>Digital artist</b>. I own a startup
             called Jetron Mall, which comprises an{' '}
             <a
@@ -294,7 +294,7 @@ const Home = ({ data: posts }: { data: any }) => {
             >
               Jetron Ticket
             </a>
-            . I have {date.getFullYear() - 2017}+ years of programming
+            . I have {date.getFullYear() - 2019}+ years of programming
             experience. I love to write dev articles. I majored in Mechanical
             Engineering. I currently work as a Software Engineer 🎉.
           </motion.p>
@@ -370,7 +370,7 @@ const Home = ({ data: posts }: { data: any }) => {
                     description={repo.description}
                     fullName={repo.full_name}
                     name={repo.name}
-                    stars={repo.stargazers}
+                    stars={repo.stargazers_count}
                     url={repo.html_url}
                   />
                 ))}
