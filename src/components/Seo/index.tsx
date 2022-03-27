@@ -1,242 +1,112 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useLocation } from '@reach/router';
-import { useStaticQuery, graphql } from 'gatsby';
-import useColorMode from '../../hooks/useColorMode';
+import React, { FC } from 'react';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-const thisDate = new Date();
-
-const Seo = ({ title, description, article, image, author, date }: Seo) => {
-  const { href } = useLocation();
-  const { site } = useStaticQuery(query);
-  const { isLightMode } = useColorMode();
-  const {
-    defaultTitle,
-    titleTemplate,
-    defaultDescription,
-    siteUrl,
-    defaultImage,
-    twitterUsername,
-    buildTime,
-  } = site.siteMetadata;
-
-  const seo: Seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    image: image ? image : defaultImage,
-  };
-
-  const schemaOrgWebPage = {
-    '@context': 'http://schema.org',
-    '@type': 'WebPage',
-    url: siteUrl,
-    headline: seo.title,
-    inLanguage: 'en',
-    mainEntityOfPage: siteUrl,
-    description: defaultDescription,
-    name: defaultTitle,
-    author: {
-      '@type': 'Person',
-      name: 'Damilola Jerugba',
-    },
-    copyrightHolder: {
-      '@type': 'Person',
-      name: 'Damilola Jerugba',
-    },
-    copyrightYear: thisDate.getFullYear(),
-    creator: {
-      '@type': 'Person',
-      name: 'Damilola Jerugba',
-    },
-    publisher: {
-      '@type': 'Person',
-      name: 'Damilola Jerugba',
-    },
-    datePublished: date ? date : buildTime,
-    dateModified: date ? date : buildTime,
-    image: {
-      '@type': 'ImageObject',
-      url: `https://www.damiisdandy.com${seo.image}`,
-    },
-  };
-
-  const itemListElement = [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      item: {
-        '@id': siteUrl,
-        name: 'Home',
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 1,
-      item: {
-        '@id': siteUrl + '/my-works',
-        name: 'My Works',
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 1,
-      item: {
-        '@id': siteUrl,
-        name: siteUrl + '/articles',
-      },
-    },
-  ];
-
-  let schemaArticle = null;
-
-  if (article) {
-    schemaArticle = {
-      '@context': 'http://schema.org',
-      '@type': 'Article',
-      author: {
-        '@type': 'Person',
-        name: author ? author : 'Damilola Jerugba',
-      },
-      copyrightHolder: {
-        '@type': 'Person',
-        name: author ? author : 'Damilola Jerugba',
-      },
-      copyrightYear: thisDate.getFullYear(),
-      creator: {
-        '@type': 'Person',
-        name: author ? author : 'Damilola Jerugba',
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: author ? author : 'Damilola Jerugba',
-        logo: {
-          '@type': 'ImageObject',
-          url: `https://www.damiisdandy.com${seo.image}`,
-        },
-      },
-      datePublished: date ? date : buildTime,
-      dateModified: date ? date : buildTime,
-      description: seo.description,
-      headline: seo.title,
-      inLanguage: 'en',
-      url: `https://www.damiisdandy.com`,
-      name: seo.title,
-      image: {
-        '@type': 'ImageObject',
-        url: `https://www.damiisdandy.com${seo.image}`,
-      },
-      mainEntityOfPage: `https://www.damiisdandy.com`,
-    };
-    // Push current blogpost into breadcrumb list
-    itemListElement.push({
-      '@type': 'ListItem',
-      item: {
-        '@id': `https://www.damiisdandy.com`,
-        name: seo.title || defaultTitle,
-      },
-      position: 2,
-    });
-  }
-
-  const breadcrumb = {
-    '@context': 'http://schema.org',
-    '@type': 'BreadcrumbList',
-    description: 'Breadcrumbs list',
-    name: 'Breadcrumbs',
-    itemListElement,
-  };
-
+const SEO: FC<Seo> = ({ description, image, title, pathname }) => {
   return (
-    <Helmet title={seo.title} titleTemplate={titleTemplate}>
-      <meta charSet="utf-8" />
-      <meta content="ie=edge" httpEquiv="x-ua-compatible" />
-      <meta content="initial-scale=1, width=device-width" name="viewport" />
-      <link rel="canonical" href={href} />
-      <meta name="description" content={seo.description} />
-      <meta name="image" content={`https://www.damiisdandy.com${seo.image}`} />
-      {/* PWA */}
-      <meta content={isLightMode ? '#4daddb' : '#ffe367'} name="theme-color" />
-      <meta
-        content={isLightMode ? '#4daddb' : '#ffe367'}
-        name="msapplication-TileColor"
-      />
-      <meta
-        content={isLightMode ? '#4daddb' : '#ffe367'}
-        name="msapplication-TileColor"
-      />
-      <meta content="yes" name="mobile-web-app-capable" />
-      <meta content="damiisdandy" name="application-name" />
-      <meta content="yes" name="apple-mobile-web-app-capable" />
-      <meta
-        content={isLightMode ? '' : ''}
-        name="apple-mobile-web-app-status-bar-style"
-      />
-      <meta content="damiisdandy" name="apple-mobile-web-app-title" />
-      {/* open graph */}
-      <meta content="website" property="og:type" />
-      <meta content="en-US" property="og:locale" />
-      <meta property="og:url" content={`https://www.damiisdandy.com`} />
-      {(article ? true : null) && <meta property="og:type" content="article" />}
-      {seo.title && <meta property="og:title" content={seo.title} />}
-      {seo.description && (
-        <meta property="og:description" content={seo.description} />
-      )}
-      {seo.image && (
-        <meta
-          property="og:image"
-          content={`https://www.damiisdandy.com${seo.image}`}
-        />
-      )}
-      {/* twitter */}
-      <meta content="summary_large_image" name="twitter:card" />
-      <meta name="twitter:card" content="summary_large_image" />
-      {twitterUsername && (
-        <meta name="twitter:creator" content={twitterUsername} />
-      )}
-      {seo.title && <meta name="twitter:title" content={seo.title} />}
-      {seo.description && (
-        <meta name="twitter:description" content={seo.description} />
-      )}
-      {seo.image && (
-        <meta
-          name="twitter:image"
-          content={
-            seo.image.startsWith('http')
-              ? seo.image
-              : `https://www.damiisdandy.com${seo.image}`
-          }
-        />
-      )}
-      {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
-      {!article && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgWebPage)}
-        </script>
-      )}
-      {article && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaArticle)}
-        </script>
-      )}
-      <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
-    </Helmet>
+    <StaticQuery
+      query={detailsQuery}
+      render={data => {
+        const metaDescription =
+          description || data.site.siteMetadata.description;
+        const metaImage = image
+          ? `${data.site.siteMetadata.siteUrl}${image}`
+          : `${data.site.siteMetadata.siteUrl}${data.site.siteMetadata.image}`;
+        const metaUrl = `${data.site.siteMetadata.siteUrl}${pathname}`;
+        return (
+          <Helmet
+            htmlAttributes={{
+              lang: 'en',
+            }}
+            title={title}
+            titleTemplate={data.site.siteMetadata.titleTemplate}
+            meta={[
+              {
+                name: `description`,
+                content: metaDescription,
+              },
+              {
+                property: `og:title`,
+                content: title,
+              },
+              {
+                property: `og:url`,
+                content: metaUrl,
+              },
+              {
+                property: `og:description`,
+                content: metaDescription,
+              },
+              {
+                property: `og:type`,
+                content: `website`,
+              },
+              {
+                name: `twitter:creator`,
+                content: `@${data.site.siteMetadata.social.twitter}`,
+              },
+              {
+                name: `twitter:title`,
+                content: title,
+              },
+              {
+                name: `twitter:description`,
+                content: metaDescription,
+              },
+              {
+                name: 'google-site-verification',
+                content: 'QlRmuLQWttdkbKlZ0ZwIBX3xv0M8ouqTW3wE2Eg_jKI',
+              },
+              {
+                name: 'article:published_time',
+                content: data.site.buildTime,
+              },
+            ].concat(
+              metaImage
+                ? [
+                    {
+                      property: `og:image`,
+                      content: metaImage,
+                    },
+                    {
+                      property: `og:image:alt`,
+                      content: title,
+                    },
+                    {
+                      name: `twitter:card`,
+                      content: `summary_large_image`,
+                    },
+                  ]
+                : [
+                    {
+                      name: `twitter:card`,
+                      content: `summary`,
+                    },
+                  ]
+            )}
+          />
+        );
+      }}
+    />
   );
 };
 
-export default Seo;
+export default SEO;
 
-const query = graphql`
-  query SEO {
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
     site {
       buildTime: buildTime(formatString: "YYYY-MM-DD")
       siteMetadata {
         title
         titleTemplate
-        description
         siteUrl
+        description
+        author
         image
-        twitterUsername
-        colorTheme
+        social {
+          twitter
+        }
       }
     }
   }

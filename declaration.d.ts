@@ -1,12 +1,10 @@
 declare module '*.scss';
 
 interface Seo {
-  title?: string;
+  title: string;
   image?: string;
   description?: string;
-  article?: boolean;
-  author?: string;
-  date?: string;
+  pathname: string;
 }
 
 interface Store {

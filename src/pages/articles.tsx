@@ -49,6 +49,7 @@ const Articles = ({ data }: { data: any }) => {
   return (
     <>
       <Seo
+        pathname="/articles"
         title="My Articles"
         description="Articles written by Damilola Jerugba"
         image="/seo/articles.png"

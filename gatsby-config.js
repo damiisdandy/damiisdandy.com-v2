@@ -6,8 +6,11 @@ module.exports = {
     description: `Damiisdandy's official website`,
     url: 'https://www.damiisdandy.com', // No trailing slash allowed!
     image: '/seo/index.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@realDamiisdandy',
+    social: {
+      twitter: `realdamiisdandy`,
+    },
     colorTheme: '#ffe367',
+    author: 'Damilola Jerugba',
   },
   plugins: [
     `gatsby-plugin-sass`,

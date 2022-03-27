@@ -110,6 +110,7 @@ const Home = ({ data: posts }: { data: any }) => {
         title="Home"
         description="An overview about Damilola Jerugba"
         image="/seo/index.png"
+        pathname="/"
       />
       <div className="Home">
         <div className="Heading section" key={isLightMode.toString()}>

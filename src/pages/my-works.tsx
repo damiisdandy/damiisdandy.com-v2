@@ -113,6 +113,7 @@ const MyWorks = ({ data }: { data: any }) => {
         title="My Works"
         description="Websites made by Damilola Jerugba"
         image="/seo/my-works.png"
+        pathname="/my-works"
       />
       <div className="MyWorks">
         <motion.div
