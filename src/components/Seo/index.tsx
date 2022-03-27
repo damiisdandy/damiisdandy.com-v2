@@ -7,7 +7,7 @@ import useColorMode from '../../hooks/useColorMode';
 const thisDate = new Date();
 
 const Seo = ({ title, description, article, image, author, date }: Seo) => {
-  const { href, host } = useLocation();
+  const { href } = useLocation();
   const { site } = useStaticQuery(query);
   const { isLightMode } = useColorMode();
   const {

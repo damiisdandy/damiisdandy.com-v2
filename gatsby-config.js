@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://damiisdandy.com',
+    siteUrl: 'https://www.damiisdandy.com',
     title: 'Damiisdandy 👨🏾‍💻',
     titleTemplate: 'Damiisdandy 👨🏾‍💻· %s',
     description: `Damiisdandy's official website`,
-    url: 'https://damiisdandy.com', // No trailing slash allowed!
+    url: 'https://www.damiisdandy.com', // No trailing slash allowed!
     image: '/seo/index.png', // Path to your image you placed in the 'static' folder
     twitterUsername: '@realDamiisdandy',
     colorTheme: '#ffe367',
