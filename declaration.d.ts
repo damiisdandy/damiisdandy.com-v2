@@ -69,3 +69,10 @@ interface BlogPost {
   previous: MarkdownRemark;
   next: MarkdownRemark;
 }
+
+interface MyWork {
+  name: string
+  description: string
+  image: string
+  url: string
+}

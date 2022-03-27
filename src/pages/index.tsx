@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { graphql, Link } from 'gatsby';
 import useColorMode from '../hooks/useColorMode';
@@ -16,7 +16,7 @@ import Spotify from '../components/Spotify';
 const FEATURED_REPOS = [
   'use-pagination',
   'context-api-typescript',
-  'zero-billion',
+  'playlist-converter-api',
   'vlc-video-selector',
 ];
 
@@ -83,25 +83,32 @@ const scaleVariant = {
 const date = new Date();
 
 const Home = ({ data: posts }: { data: any }) => {
-  const recentPosts: FrontmatterSlug[] = posts.allMarkdownRemark.edges
-    .map((el: any) => ({ ...el.node.frontmatter, slug: el.node.fields.slug }))
-    .sort(
-      (a: FrontmatterSlug, b: FrontmatterSlug) =>
-        // @ts-ignore
-        new Date(b.date) - new Date(a.date)
-    )
-    .slice(0, 4);
+  const recentPosts: FrontmatterSlug[] = useMemo(
+    () =>
+      posts.allMarkdownRemark.edges
+        .map((el: any) => ({
+          ...el.node.frontmatter,
+          slug: el.node.fields.slug,
+        }))
+        .sort(
+          (a: FrontmatterSlug, b: FrontmatterSlug) =>
+            // @ts-ignore
+            new Date(b.date) - new Date(a.date)
+        )
+        .slice(0, 4),
+    [[posts]]
+  );
 
   const { isLightMode } = useColorMode();
   const { data, error } = useFetch(
-    'https://api.github.com/users/damiisdandy/repos'
+    'https://api.github.com/users/damiisdandy/repos?per_page=1000'
   );
 
   return (
     <>
       <Seo
         title="Home"
-        description="A short overview about Damilola Jerugba"
+        description="An overview about Damilola Jerugba"
         image="/seo/index.png"
       />
       <div className="Home">
@@ -113,13 +120,23 @@ const Home = ({ data: posts }: { data: any }) => {
             viewport={{ once: true }}
             className="image"
           >
-            <StaticImage
-              layout="fullWidth"
-              objectFit="cover"
-              src="../images/me.jpg"
-              alt="drawing of me (cartoon)"
-              placeholder="blurred"
-            />
+            {isLightMode ? (
+              <StaticImage
+                layout="fullWidth"
+                objectFit="cover"
+                src="../images/me/avatar/blue-bg.jpeg"
+                alt="drawing of me with blue background"
+                placeholder="blurred"
+              />
+            ) : (
+              <StaticImage
+                layout="fullWidth"
+                objectFit="cover"
+                src="../images/me/avatar/yellow-bg.jpeg"
+                alt="drawing of me with blue background"
+                placeholder="blurred"
+              />
+            )}
           </motion.div>
           <motion.div
             variants={containerVariant}
@@ -134,9 +151,9 @@ const Home = ({ data: posts }: { data: any }) => {
             </motion.h2>
             <motion.p variants={unveilVariant} className="about">
               Hey! Fun fact, I'm in love with programming as a whole, especially{' '}
-              <b>Web Development</b> (and anime), I build high performant web
-              applications that meets my client's needs. I also love sharing my
-              knowledge, so I write dev{' '}
+              <b>Web Development</b>, I build high performant web applications
+              that meets my client's needs. I also love sharing my knowledge, so
+              I write dev{' '}
               <Link className="my-link" to="/articles">
                 articles.
               </Link>
@@ -255,14 +272,6 @@ const Home = ({ data: posts }: { data: any }) => {
             </motion.div>
           </motion.div>
         </div>
-        <div className="Articles section">
-          <h1>recent articles</h1>
-          <div className="posts">
-            {recentPosts.map(el => (
-              <Post key={el.title} {...el} />
-            ))}
-          </div>
-        </div>
         <div className="About section">
           <h1>about me</h1>
           <motion.p
@@ -275,42 +284,10 @@ const Home = ({ data: posts }: { data: any }) => {
           >
             Hey 👋🏿, My name is Damilola Onaopemipo Jerugba. I am a{' '}
             <b>FullStack Developer</b>, <b>Photographer</b>,{' '}
-            <b>Graphic designer</b>, and <b>Digital artist</b>. I own a startup
-            called Jetron Mall, which comprises of an{' '}
-            <a
-              href="https://www.jetronmall.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="my-link"
-            >
-              E-commerce
-            </a>{' '}
-            section and{' '}
-            <a
-              href="https://ticket.jetronmall.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="my-link"
-            >
-              Jetron Ticket
-            </a>
-            . I have {date.getFullYear() - 2019}+ years of programming
-            experience. I love to write dev articles. I majored in Mechanical
-            Engineering. I currently work as a Software Engineer 🎉.
+            <b>Graphic designer</b>, and <b>Digital artist</b>. I have{' '}
+            {date.getFullYear() - 2019}+ years of programming experience and I
+            love to write dev articles.
           </motion.p>
-        </div>
-        <div className="Spotify section">
-          <h1>spotify playlist</h1>
-          <motion.div
-            whileInView={{
-              opacity: [0, 1],
-              y: ['-20px', '0px'],
-            }}
-            viewport={{ once: true, margin: '20%' }}
-            className="container"
-          >
-            <Spotify />
-          </motion.div>
         </div>
         <motion.div
           variants={containerVariant}
@@ -347,6 +324,27 @@ const Home = ({ data: posts }: { data: any }) => {
             </div>
           </motion.div>
         </motion.div>
+        <div className="Articles section">
+          <h1>recent articles</h1>
+          <div className="posts">
+            {recentPosts.map(el => (
+              <Post key={el.title} {...el} />
+            ))}
+          </div>
+        </div>
+        <div className="Spotify section">
+          <h1>spotify playlist</h1>
+          <motion.div
+            whileInView={{
+              opacity: [0, 1],
+              y: ['-20px', '0px'],
+            }}
+            viewport={{ once: true, margin: '20%' }}
+            className="container"
+          >
+            <Spotify />
+          </motion.div>
+        </div>
         <div className="Github section">
           <h1>featured repos</h1>
           {!data && !error ? (

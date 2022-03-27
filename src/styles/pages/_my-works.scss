@@ -8,6 +8,7 @@
   .desc {
     text-align: center;
     font-size: 2rem;
+    height: 4rem;
   }
   .hint {
     font-size: 1.6rem;
@@ -20,6 +21,7 @@
     margin: 4rem 0;
     display: grid;
     grid-template-columns: 1fr;
+    align-items: center;
     .work {
       perspective: 100rem;
       &:not(:last-child) {
@@ -40,6 +42,7 @@
         cursor: pointer;
         box-shadow: 0rem 1rem 1rem rgba(black, 0.3);
         border-radius: 1rem;
+        overflow: hidden;
         &:hover {
           img {
             transform: scale(1.1);

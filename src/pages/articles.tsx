@@ -1,4 +1,4 @@
-import { graphql, navigate, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import React, { ChangeEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 import useColorMode from '../hooks/useColorMode';
@@ -90,7 +90,7 @@ const Articles = ({ data }: { data: any }) => {
 export default Articles;
 
 export const pageQuery = graphql`
-  query MyQuery {
+  query ArticlesQuery {
     allMarkdownRemark {
       edges {
         node {

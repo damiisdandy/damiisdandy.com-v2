@@ -119,20 +119,20 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       description: seo.description,
       headline: seo.title,
       inLanguage: 'en',
-      url: seo.url,
+      url: `https://${host}`,
       name: seo.title,
       image: {
         '@type': 'ImageObject',
         url: seo.image,
       },
-      mainEntityOfPage: seo.url,
+      mainEntityOfPage: `https://${host}`,
     };
     // Push current blogpost into breadcrumb list
     itemListElement.push({
       '@type': 'ListItem',
       item: {
-        '@id': seo.url,
-        name: seo.title,
+        '@id': `https://${host}`,
+        name: seo.title || defaultTitle,
       },
       position: 2,
     });
@@ -175,7 +175,7 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       {/* open graph */}
       <meta content="website" property="og:type" />
       <meta content="en-US" property="og:locale" />
-      {seo.url && <meta property="og:url" content={seo.url} />}
+      <meta property="og:url" content={`https://${host}`} />
       {(article ? true : null) && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
       {seo.description && (
