@@ -10,7 +10,9 @@ const SEO: FC<Seo> = ({ description, image, title, pathname }) => {
         const metaDescription =
           description || data.site.siteMetadata.description;
         const metaImage = image
-          ? `${data.site.siteMetadata.siteUrl}${image}`
+          ? image.startsWith('https')
+            ? image
+            : `${data.site.siteMetadata.siteUrl}${image}`
           : `${data.site.siteMetadata.siteUrl}${data.site.siteMetadata.image}`;
         const metaUrl = `${data.site.siteMetadata.siteUrl}${pathname}`;
         return (
