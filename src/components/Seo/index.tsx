@@ -56,7 +56,7 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
     dateModified: date ? date : buildTime,
     image: {
       '@type': 'ImageObject',
-      url: `${seo.image}`,
+      url: `https://www.damiisdandy.com${seo.image}`,
     },
   };
 
@@ -111,7 +111,7 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
         name: author ? author : 'Damilola Jerugba',
         logo: {
           '@type': 'ImageObject',
-          url: `${seo.image}`,
+          url: `https://www.damiisdandy.com${seo.image}`,
         },
       },
       datePublished: date ? date : buildTime,
@@ -119,19 +119,19 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       description: seo.description,
       headline: seo.title,
       inLanguage: 'en',
-      url: `https://${host}`,
+      url: `https://www.damiisdandy.com`,
       name: seo.title,
       image: {
         '@type': 'ImageObject',
-        url: seo.image,
+        url: `https://www.damiisdandy.com${seo.image}`,
       },
-      mainEntityOfPage: `https://${host}`,
+      mainEntityOfPage: `https://www.damiisdandy.com`,
     };
     // Push current blogpost into breadcrumb list
     itemListElement.push({
       '@type': 'ListItem',
       item: {
-        '@id': `https://${host}`,
+        '@id': `https://www.damiisdandy.com`,
         name: seo.title || defaultTitle,
       },
       position: 2,
@@ -153,7 +153,7 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       <meta content="initial-scale=1, width=device-width" name="viewport" />
       <link rel="canonical" href={href} />
       <meta name="description" content={seo.description} />
-      <meta name="image" content={`${seo.image}`} />
+      <meta name="image" content={`https://www.damiisdandy.com${seo.image}`} />
       {/* PWA */}
       <meta content={isLightMode ? '#4daddb' : '#ffe367'} name="theme-color" />
       <meta
@@ -175,13 +175,18 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
       {/* open graph */}
       <meta content="website" property="og:type" />
       <meta content="en-US" property="og:locale" />
-      <meta property="og:url" content={`https://${host}`} />
+      <meta property="og:url" content={`https://www.damiisdandy.com`} />
       {(article ? true : null) && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
       {seo.description && (
         <meta property="og:description" content={seo.description} />
       )}
-      {seo.image && <meta property="og:image" content={`${seo.image}`} />}
+      {seo.image && (
+        <meta
+          property="og:image"
+          content={`https://www.damiisdandy.com${seo.image}`}
+        />
+      )}
       {/* twitter */}
       <meta content="summary_large_image" name="twitter:card" />
       <meta name="twitter:card" content="summary_large_image" />
@@ -198,7 +203,7 @@ const Seo = ({ title, description, article, image, author, date }: Seo) => {
           content={
             seo.image.startsWith('http')
               ? seo.image
-              : `https://${host}${seo.image}`
+              : `https://www.damiisdandy.com${seo.image}`
           }
         />
       )}
