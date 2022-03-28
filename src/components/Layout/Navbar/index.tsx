@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useColorMode from '../../../hooks/useColorMode';
 import { BiSun, BiMoon } from 'react-icons/bi';
 import Sidebar from './Sidebar';
@@ -18,7 +18,7 @@ const LINKS: { name: string; url: string }[] = [
   },
   {
     name: 'resume',
-    url: '/Damilola-Jerugba-Full-Stack-Developer-Dec-2021.pdf',
+    url: '/Damilola-Jerugba-Resume-March-2022.pdf',
   },
   {
     name: 'articles',
