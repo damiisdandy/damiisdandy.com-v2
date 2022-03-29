@@ -22,7 +22,7 @@
     "framer-motion": "^5.5.5",
     "gatsby": "^3.13.1",
     "gatsby-plugin-feed": "^3.13.0",
-    "gatsby-plugin-google-analytics": "^3.13.0",
+    "gatsby-plugin-google-gtag": "^4.10.0",
     "gatsby-plugin-image": "^1.13.0",
     "gatsby-plugin-manifest": "^3.13.0",
     "gatsby-plugin-offline": "^4.13.0",
