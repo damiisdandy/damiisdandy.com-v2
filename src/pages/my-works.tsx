@@ -77,7 +77,7 @@ const WORKS: MyWork[] = [
     name: 'Outlawville',
     description: "Victon'y official website",
     image: 'victony',
-    url: 'https://dev.brimble.app',
+    url: '#',
   },
   {
     name: 'Hoodini | damiisdandy',

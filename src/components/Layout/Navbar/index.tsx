@@ -85,6 +85,7 @@ const Navbar = () => {
               key={el.url}
               to={el.url}
               className={`link ${pathname === el.url && 'active'}`}
+              target={el.url.includes('.pdf') ? '_blank' : '_self'}
             >
               {el.name}
             </Link>
