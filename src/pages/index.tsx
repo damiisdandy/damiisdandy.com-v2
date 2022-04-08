@@ -161,7 +161,7 @@ const Home = ({ data: posts }: { data: any }) => {
                 animationDelay={1000}
                 strokeWidth={2}
               >
-                Full stack developer{' '}
+                Full&nbsp;stack&nbsp;developer{' '}
               </RoughNotation>{' '}
               who loves building things with code. I'm in love with programming
               as a whole, especially <b>Web Development</b>, I build high
@@ -306,7 +306,7 @@ const Home = ({ data: posts }: { data: any }) => {
               animationDelay={1000}
               strokeWidth={1.5}
             >
-              {date.getFullYear() - 2019}+ years
+              {date.getFullYear() - 2019}+&nbsp;years
             </RoughNotation>{' '}
             of programming experience and I love to write{' '}
             <Link className="my-link" to="/articles">

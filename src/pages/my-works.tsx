@@ -86,12 +86,12 @@ const WORKS: MyWork[] = [
     image: 'hoodini',
     url: 'https://hoodini.damiisdandy.com',
   },
-  // {
-  //   name: 'Damiisdandy',
-  //   description: 'My official website/portfolio',
-  //   image: 'damiisdandy',
-  //   url: '#',
-  // },
+  {
+    name: 'Damiisdandy',
+    description: 'My official website/portfolio',
+    image: 'damiisdandy',
+    url: '/',
+  },
 ];
 
 const MyWorks = ({ data }: { data: any }) => {
