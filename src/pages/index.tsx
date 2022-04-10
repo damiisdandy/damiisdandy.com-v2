@@ -296,8 +296,8 @@ const Home = ({ data: posts }: { data: any }) => {
             className="story"
           >
             Hey 👋🏿, My name is Damilola Onaopemipo Jerugba. I am a{' '}
-            <b>Full stack Developer</b>, <b>Photographer</b>,{' '}
-            <b>Graphic designer</b>, and <b>Digital artist</b>. I have{' '}
+            <b>Full stack Developer</b>, <b>Technical writer</b>, and{' '}
+            <b>Digital artist</b>. I have{' '}
             <RoughNotation
               type="box"
               show
@@ -381,6 +381,14 @@ const Home = ({ data: posts }: { data: any }) => {
               {OFFICIAL_MAIL}
             </a>
           </motion.h2>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://calendly.com/damiisdandy/get-to-know-me"
+            className="calendly"
+          >
+            Book a meeting
+          </a>
           <motion.div variants={unveilVariant} className="Social">
             <p>Follow me on</p>
             <div className="socials">

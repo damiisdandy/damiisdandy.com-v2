@@ -106,6 +106,27 @@
     h2 {
       font-size: 2rem;
     }
+    .calendly {
+      display: block;
+      &:link,
+      &:visited {
+        color: #333;
+        text-decoration: none;
+      }
+      background-color: $primary-color;
+      width: fit-content;
+      padding: 1rem 3rem;
+      margin: 2rem auto;
+      font-size: 1.6rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      &:hover {
+        transform: scale(1.06);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
     .Social {
       margin-top: 1rem;
       p {
@@ -162,6 +183,15 @@
       }
       .image {
         border-color: $primary-color-2;
+      }
+    }
+    .Contact {
+      .calendly {
+        background-color: $primary-color-2;
+        &:link,
+        &:visited {
+          color: white;
+        }
       }
     }
     .Talents {
