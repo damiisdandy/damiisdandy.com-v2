@@ -17,6 +17,7 @@ html {
   background-color: $dark-background-color;
   color: $dark-text-color;
   max-width: 100vw;
+  overflow-x: hidden;
   min-height: 100vh;
   padding: 0 2rem;
   * {
@@ -73,9 +74,9 @@ html {
   font-weight: 600;
   font-family: monospace;
   display: inline-block;
-  padding: 0.1rem 0.6rem;
+  padding: 0 1rem;
   margin: 0.2rem;
-  background-color: #555;
+  background-color: #777;
   color: #222;
   border-radius: 0.3rem;
 }
@@ -138,6 +139,6 @@ html {
 // pages
 @import './pages/index';
 @import './pages/404';
-@import './pages/my-works';
+@import './pages/resume';
 @import './pages/blog';
 @import './pages/articles';

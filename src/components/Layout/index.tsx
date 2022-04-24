@@ -26,7 +26,7 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Helmet
-        bodyAttributes={{
+        htmlAttributes={{
           class: state.isSidebarOpen ? 'no-scroll' : 'scroll',
         }}
       />

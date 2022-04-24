@@ -28,6 +28,12 @@
 .light {
   .Sidebar {
     background-color: $light-background-color;
+    .link {
+      &:link,
+      &:visited {
+        border-bottom-color: #ccc;
+      }
+    }
   }
 }
 

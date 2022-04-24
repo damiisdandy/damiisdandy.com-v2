@@ -13,20 +13,21 @@ const LINKS: { name: string; url: string }[] = [
     url: '/',
   },
   {
-    name: 'my works',
-    url: '/my-works',
+    name: 'about me',
+    url: '/about',
   },
   {
     name: 'resume',
-    url: '/Damilola-Jerugba-Resume-March-2022.pdf',
+    url: '/resume',
+    // url: '/Damilola-Jerugba-Resume-March-2022.pdf',
+  },
+  {
+    name: 'projects',
+    url: '/projects',
   },
   {
     name: 'articles',
     url: '/articles',
-  },
-  {
-    name: 'contact me',
-    url: '/#contact-me',
   },
 ];
 

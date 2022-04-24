@@ -52,7 +52,7 @@
     .Talents {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 6rem;
       .talent {
         padding: 2rem;
         border-radius: 1rem;
@@ -77,8 +77,8 @@
           text-transform: capitalize;
         }
         p {
-          font-size: 1.8rem;
-          line-height: 2.3rem;
+          font-size: 1.7rem;
+          line-height: 2.5rem;
           color: #ccc;
         }
         .code {
@@ -87,11 +87,40 @@
       }
     }
   }
-  .About {
-    .story {
-      margin: 0 auto;
-      font-size: 2rem;
-      line-height: 3rem;
+  .Technologies {
+    .scroll-parent {
+      margin-top: 3rem;
+      position: relative;
+      width: 350vw;
+      height: 7rem;
+      right: 2rem;
+      overflow-x: hidden;
+    }
+    .scroll-element {
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 5rem;
+      & svg {
+        color: #aaa;
+        &:last-child {
+          margin-right: 5rem;
+        }
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+      &.primary {
+        animation: primary 16s linear infinite;
+      }
+      &.secondary {
+        animation: secondary 16s linear infinite;
+      }
     }
   }
   .Spotify {
@@ -99,54 +128,6 @@
       border-radius: 2rem;
       overflow: hidden;
       box-shadow: 0 1rem 2rem rgba(black, 0.3);
-    }
-  }
-  .Contact {
-    text-align: center;
-    h2 {
-      font-size: 2rem;
-    }
-    .calendly {
-      display: block;
-      &:link,
-      &:visited {
-        color: #333;
-        text-decoration: none;
-      }
-      background-color: $primary-color;
-      width: fit-content;
-      padding: 1rem 3rem;
-      margin: 2rem auto;
-      font-size: 1.6rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      &:hover {
-        transform: scale(1.06);
-      }
-      &:active {
-        transform: scale(0.9);
-      }
-    }
-    .Social {
-      margin-top: 1rem;
-      p {
-        font-size: 1.7rem;
-      }
-      .socials {
-        margin-top: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 3rem;
-        width: 100%;
-        a {
-          &:link,
-          &:visited {
-            font-size: 3rem;
-            color: inherit;
-          }
-        }
-      }
     }
   }
   .Github {
@@ -183,15 +164,6 @@
       }
       .image {
         border-color: $primary-color-2;
-      }
-    }
-    .Contact {
-      .calendly {
-        background-color: $primary-color-2;
-        &:link,
-        &:visited {
-          color: white;
-        }
       }
     }
     .Talents {
@@ -231,6 +203,18 @@
         grid-template-columns: 1fr 1fr;
       }
     }
+    .Technologies {
+      .scroll-parent {
+        width: 200vw;
+      }
+      .scroll-element {
+        & svg {
+          &:last-child {
+            margin-right: 6rem;
+          }
+        }
+      }
+    }
     .Github {
       .Repos {
         grid-template-columns: 1fr 1fr;
@@ -245,6 +229,40 @@
             position: absolute;
             bottom: 2rem;
             left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include tablet-lg {
+  .Home {
+    .Technologies {
+      .scroll-parent {
+        right: calc((100vw - 900px) / 2);
+        width: 150vw;
+        .scroll-element {
+          & svg {
+            &:last-child {
+              margin-right: 7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include large {
+  .Home {
+    .Technologies {
+      .scroll-parent {
+        .scroll-element {
+          & svg {
+            &:last-child {
+              margin-right: 6rem;
+            }
           }
         }
       }

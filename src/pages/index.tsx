@@ -3,11 +3,18 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { graphql, Link } from 'gatsby';
 import useColorMode from '../hooks/useColorMode';
 import useFetch from '../hooks/useFetch';
-import { BsGithub, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
-import { FaDev } from 'react-icons/fa';
-import { IconType } from 'react-icons';
-import { RoughNotation } from 'react-rough-notation';
-import { OFFICIAL_MAIL } from '../config';
+import { BsGithub } from 'react-icons/bs';
+import { FaReact, FaVuejs, FaPython, FaSass, FaAws } from 'react-icons/fa';
+import {
+  SiJavascript,
+  SiTypescript,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiPostgresql,
+  SiTailwindcss,
+} from 'react-icons/si';
+import { DiDjango } from 'react-icons/di';
 import Seo from '../components/Seo';
 import { motion } from 'framer-motion';
 import Repo from '../components/Repo';
@@ -19,32 +26,6 @@ const FEATURED_REPOS = [
   'context-api-typescript',
   'playlist-converter-api',
   'vlc-video-selector',
-];
-
-const SOCIALS: {
-  icon: IconType;
-  url: string;
-}[] = [
-  {
-    icon: BsInstagram,
-    url: 'https://www.instagram.com/damil0la.jpg/',
-  },
-  {
-    icon: BsTwitter,
-    url: 'https://twitter.com/realdamiisdandy',
-  },
-  {
-    icon: BsGithub,
-    url: 'https://github.com/damiisdandy',
-  },
-  {
-    icon: BsLinkedin,
-    url: 'https://www.linkedin.com/in/damiisdandy',
-  },
-  {
-    icon: FaDev,
-    url: 'https://dev.to/damiisdandy',
-  },
 ];
 
 const containerVariant = {
@@ -81,7 +62,25 @@ const scaleVariant = {
   },
 };
 
-const date = new Date();
+const FrameWorks = () => {
+  return (
+    <>
+      <FaReact />
+      <FaVuejs />
+      <FaPython />
+      <FaSass />
+      <FaAws />
+      <SiJavascript />
+      <SiTailwindcss />
+      <SiTypescript />
+      <SiMongodb />
+      <SiExpress />
+      <SiMysql />
+      <SiPostgresql />
+      <DiDjango />
+    </>
+  );
+};
 
 const Home = ({ data: posts }: { data: any }) => {
   const recentPosts: FrontmatterSlug[] = useMemo(
@@ -152,19 +151,9 @@ const Home = ({ data: posts }: { data: any }) => {
               Full stack developer {isLightMode ? ' 💙' : '⚡'}
             </motion.h2>
             <motion.p variants={unveilVariant} className="about">
-              Hey! I'm Damilola, I'm a{' '}
-              <RoughNotation
-                type="underline"
-                show
-                padding={1}
-                color={isLightMode ? '#4daddb' : '#ffe367'}
-                animationDelay={1000}
-                strokeWidth={2}
-              >
-                Full&nbsp;stack&nbsp;developer{' '}
-              </RoughNotation>{' '}
-              who loves building things with code. I'm in love with programming
-              as a whole, especially <b>Web Development</b>, I build high
+              Hey! I'm Damilola, I'm a <b>Full&nbsp;stack&nbsp;developer</b> who
+              loves building things with code. I'm in love with programming as a
+              whole, especially <b>Web&nbsp;Development</b>, I build high
               performant web applications that meets my client's needs. I also
               love sharing my knowledge, so I write dev{' '}
               <Link className="my-link" to="/articles">
@@ -285,132 +274,15 @@ const Home = ({ data: posts }: { data: any }) => {
             </motion.div>
           </motion.div>
         </div>
-        <div className="About section">
-          <h1>about me</h1>
-          <motion.p
-            whileInView={{
-              opacity: [0, 1],
-              y: ['-20px', '0px'],
-            }}
-            viewport={{ once: true, margin: '20%' }}
-            className="story"
-          >
-            Hey 👋🏿, My name is Damilola Onaopemipo Jerugba. I am a{' '}
-            <b>Full stack Developer</b>, <b>Technical writer</b>, and{' '}
-            <b>Digital artist</b>. I have{' '}
-            <RoughNotation
-              type="box"
-              show
-              padding={[2, 4]}
-              color={isLightMode ? '#4daddb' : '#ffe367'}
-              animationDelay={1000}
-              strokeWidth={1.5}
-            >
-              {date.getFullYear() - 2019}+&nbsp;years
-            </RoughNotation>{' '}
-            of programming experience and I love to write{' '}
-            <Link className="my-link" to="/articles">
-              dev articles
-            </Link>
-            .
-            <br />
-            <br />
-            My first experience coding was when my dad brought home an app
-            called{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://scratch.mit.edu/"
-              className="my-link"
-            >
-              scratch
-            </a>
-            , the app showed me how to build games 👾 with simple building
-            blocks. I was fully engulfed in it but that didn't last very long.
-            <br />
-            <br /> Years later around August 2019 🕝, I started to learn ethical
-            hacking and had a lot of fun learning it, till I realized I was
-            limited to the tools I had, I wanted to build custom tools so began
-            to learn python 🐍, this lead me to build a lot of scripts to
-            automate stuff, I fell in love instantly and later moved to learn
-            web development by building web applications with the{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.djangoproject.com/"
-              className="my-link"
-            >
-              Django
-            </a>{' '}
-            web framework. <br />
-            <br />
-            Fast forward to 2020, Covid 🦠 hit, and I had all the time in the
-            world, so I consumed a lot of courses on{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.udemy.com/"
-              className="my-link"
-            >
-              Udemy
-            </a>
-            . After that, I've had a lot of opportunities to work with clients
-            and companies.
-            <br />
-            <br /> Since then I've been honing my skills and learning as I also
-            taught others, I'm currently seeking a full-time role where I can
-            help a company achieve its goals and build myself as a developer 👨🏾‍💻.
-          </motion.p>
-        </div>
-        <motion.div
-          variants={containerVariant}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          id="contact-me"
-          className="Contact section"
-        >
-          <h1>Contact Me</h1>
-          <motion.h2 variants={unveilVariant}>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={`mailto:${OFFICIAL_MAIL}`}
-              className="my-link"
-            >
-              {OFFICIAL_MAIL}
-            </a>
-          </motion.h2>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://calendly.com/damiisdandy/get-to-know-me"
-            className="calendly"
-          >
-            Book a meeting
-          </a>
-          <motion.div variants={unveilVariant} className="Social">
-            <p>Follow me on</p>
-            <div className="socials">
-              {SOCIALS.map(el => (
-                <a
-                  key={el.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={el.url}
-                >
-                  <el.icon />
-                </a>
-              ))}
+        <div className="Technologies section">
+          <h1>technologies</h1>
+          <div className="scroll-parent">
+            <div className="scroll-element primary">
+              <FrameWorks />
             </div>
-          </motion.div>
-        </motion.div>
-        <div className="Articles section">
-          <h1>recent articles</h1>
-          <div className="posts">
-            {recentPosts.map(el => (
-              <Post key={el.title} {...el} />
-            ))}
+            <div className="scroll-element secondary">
+              <FrameWorks />
+            </div>
           </div>
         </div>
         <div className="Spotify section">
@@ -425,6 +297,14 @@ const Home = ({ data: posts }: { data: any }) => {
           >
             <Spotify />
           </motion.div>
+        </div>
+        <div className="Articles section">
+          <h1>recent articles</h1>
+          <div className="posts">
+            {recentPosts.map(el => (
+              <Post key={el.title} {...el} />
+            ))}
+          </div>
         </div>
         <div className="Github section">
           <h1>featured repos</h1>

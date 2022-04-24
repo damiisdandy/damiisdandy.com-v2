@@ -9,6 +9,24 @@
   }
 }
 
+@keyframes primary {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes secondary {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
 .pulse {
   animation: pulse 800ms alternate infinite ease-in-out;
 }

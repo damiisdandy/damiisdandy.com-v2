@@ -43,7 +43,6 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
-    "react-rough-notation": "^1.0.2",
     "sass": "^1.42.1",
     "three": "^0.137.5"
   },
