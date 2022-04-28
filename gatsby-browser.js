@@ -9,7 +9,6 @@ import './src/styles/prism-atom-dark.scss';
 import React from 'react';
 import Layout from './src/components/Layout';
 import { GlobalStoreProvider } from './src/context';
-import { AnimatePresence } from 'framer-motion';
 
 export const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>;

@@ -33,7 +33,9 @@ const Layout: React.FC = ({ children }) => {
       <div className={`root ${isLightMode && 'light'}`}>
         <div className="container">
           <Navbar />
-          <div className="children">{children}</div>
+          <div style={{ backgroundColor: `hsl(0,0,0)` }} className="children">
+            {children}
+          </div>
           <Footer />
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
