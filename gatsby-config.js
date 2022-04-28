@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.damiisdandy.com',
     title: 'Damiisdandy 👨🏾‍💻',
-    titleTemplate: 'Damiisdandy 👨🏾‍💻· %s',
+    titleTemplate: 'Damiisdandy · %s',
     description: `Damiisdandy's official website`,
     url: 'https://www.damiisdandy.com', // No trailing slash allowed!
     image: '/seo/index.png', // Path to your image you placed in the 'static' folder
