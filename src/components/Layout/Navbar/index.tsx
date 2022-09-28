@@ -18,7 +18,7 @@ const LINKS: { name: string; url: string }[] = [
   },
   {
     name: 'resume',
-    url: '/Damilola-Jerugba-resume-September-2022',
+    url: '/Damilola-Jerugba-resume-September-2022.pdf',
   },
   {
     name: 'articles',
