@@ -43,7 +43,14 @@ const WORKS: MyWork[] = [
     description:
       'A platform for you to discover, share and promote your events.',
     image: 'jetron-ticket',
-    url: 'https://ticket.jetronmall.com',
+    url: 'https://www.jetronticket.com',
+  },
+  {
+    name: 'OpenSpec',
+    description:
+      'A platform for project manager to write requirement documents with the help of AI',
+    image: 'openspec',
+    url: 'https://about.openspec.io/',
   },
   {
     name: 'Brimble Website',
