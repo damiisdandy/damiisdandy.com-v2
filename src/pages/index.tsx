@@ -16,9 +16,9 @@ import Spotify from '../components/Spotify';
 
 const FEATURED_REPOS = [
   'use-pagination',
-  'context-api-typescript',
+  'playlist-convert-client',
   'playlist-converter-api',
-  'vlc-video-selector',
+  'block-chain-visualization',
 ];
 
 const SOCIALS: {
@@ -122,7 +122,14 @@ const Home = ({ data: posts }: { data: any }) => {
             viewport={{ once: true }}
             className="image"
           >
-            {isLightMode ? (
+            <StaticImage
+              layout="fullWidth"
+              objectFit="cover"
+              src="../images/me/portrait.jpg"
+              alt="drawing of me with blue background"
+              placeholder="blurred"
+            />
+            {/* {isLightMode ? (
               <StaticImage
                 layout="fullWidth"
                 objectFit="cover"
@@ -138,7 +145,7 @@ const Home = ({ data: posts }: { data: any }) => {
                 alt="drawing of me with blue background"
                 placeholder="blurred"
               />
-            )}
+            )} */}
           </motion.div>
           <motion.div
             variants={containerVariant}
@@ -306,60 +313,13 @@ const Home = ({ data: posts }: { data: any }) => {
               animationDelay={1000}
               strokeWidth={1.5}
             >
-              {date.getFullYear() - 2019}+&nbsp;years
+              {date.getFullYear() - 2017}+&nbsp;years
             </RoughNotation>{' '}
             of programming experience and I love to write{' '}
             <Link className="my-link" to="/articles">
               dev articles
             </Link>
             .
-            <br />
-            <br />
-            My first experience coding was when my dad brought home an app
-            called{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://scratch.mit.edu/"
-              className="my-link"
-            >
-              scratch
-            </a>
-            , the app showed me how to build games 👾 with simple building
-            blocks. I was fully engulfed in it but that didn't last very long.
-            <br />
-            <br /> Years later around August 2019 🕝, I started to learn ethical
-            hacking and had a lot of fun learning it, till I realized I was
-            limited to the tools I had, I wanted to build custom tools so began
-            to learn python 🐍, this lead me to build a lot of scripts to
-            automate stuff, I fell in love instantly and later moved to learn
-            web development by building web applications with the{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.djangoproject.com/"
-              className="my-link"
-            >
-              Django
-            </a>{' '}
-            web framework. <br />
-            <br />
-            Fast forward to 2020, Covid 🦠 hit, and I had all the time in the
-            world, so I consumed a lot of courses on{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.udemy.com/"
-              className="my-link"
-            >
-              Udemy
-            </a>
-            . After that, I've had a lot of opportunities to work with clients
-            and companies.
-            <br />
-            <br /> Since then I've been honing my skills and learning as I also
-            taught others, I'm currently seeking a full-time role where I can
-            help a company achieve its goals and build myself as a developer 👨🏾‍💻.
           </motion.p>
         </div>
         <motion.div

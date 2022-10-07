@@ -12,10 +12,10 @@ const LINKS: { name: string; url: string }[] = [
     name: 'home',
     url: '/',
   },
-  {
-    name: 'my works',
-    url: '/my-works',
-  },
+  // {
+  //   name: 'my works',
+  //   url: '/my-works',
+  // },
   {
     name: 'resume',
     url: '/Damilola-Jerugba-resume-September-2022.pdf',
