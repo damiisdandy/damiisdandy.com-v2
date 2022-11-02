@@ -313,7 +313,7 @@ const Home = ({ data: posts }: { data: any }) => {
               animationDelay={1000}
               strokeWidth={1.5}
             >
-              {date.getFullYear() - 2017}+&nbsp;years
+              {date.getFullYear() - 2020}+&nbsp;years
             </RoughNotation>{' '}
             of programming experience and I love to write{' '}
             <Link className="my-link" to="/articles">
