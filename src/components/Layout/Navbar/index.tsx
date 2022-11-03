@@ -18,7 +18,7 @@ const LINKS: { name: string; url: string }[] = [
   // },
   {
     name: 'resume',
-    url: '/damilola-jerugba-november-2022.pdf.pdf',
+    url: '/damilola-jerugba-november-2022.pdf',
   },
   {
     name: 'articles',
